@@ -1,0 +1,38 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+<!--        <h1>This is the header</h1>-->
+    </head>
+    <style>
+      body {
+        height: 100%;
+        margin: 0;
+        }
+
+       body {
+        display: flex;
+        flex-direction: column;
+        }
+
+        .content {
+        flex: 1;
+        }
+
+    </style>
+    <body>
+    <div class="content">
+        {% block content %}
+
+        {% endblock content %}
+    </div>
+
+    <div>
+        {% include 'homepage/snippets/body_bottom.html' %}
+    </div>
+    </body>
+    <footer>
+
+    </footer>
+    </html>
