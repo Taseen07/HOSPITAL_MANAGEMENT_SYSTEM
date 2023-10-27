@@ -3,17 +3,11 @@
 {% block content %}
 
 <div>
-<!--    <h1>This is the body</h1>-->
-<!--    <p>Here you put stuff</p>-->
-
     {% include 'homepage/snippets/options.html' %}
-
-<!--    {{some_string}}-->
-
-<!--    {% for list_item in list_of_values %}-->
-<!--        {% include 'homepage/snippets/body_snippest.html' with value=list_item %}-->
-<!--    {% endfor %}-->
-
 </div>
-
+<!-- Search Form -->
+    {% include 'homepage/snippets/search_box.html' %}
+<div>
+    {% include 'homepage/snippets/login_button.html' %}
+</div>
 {% endblock content %}

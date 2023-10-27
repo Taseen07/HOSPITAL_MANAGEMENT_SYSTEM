@@ -1,33 +1,52 @@
+# models.py
 from django.db import models
-from django.contrib.auth.models import AbstractUser, Group, Permission
-
-# Create your models here.
-
-# User model with basic information
-class User(AbstractUser):
-    id = models.AutoField(primary_key=True)
-    first_name = models.CharField(max_length=100)
-    last_name = models.CharField(max_length=100)
-    age = models.IntegerField()
-    phone_number = models.CharField(max_length=15)
-    gender = models.CharField(max_length=10)
-
-    # Add related_name argument to groups field
-    groups = models.ManyToManyField(Group, related_name='custom_user_set')
-    user_permissions = models.ManyToManyField(Permission, related_name='custom_user_set')
+from django.contrib.auth.models import User
 
 
-# Doctor model extending User with additional information
-class Doctor(User):
+class Doctor(models.Model):
+    """
+    Doctor model with a one-to-one relation with User.
+    Each doctor has a user associated with it.
+    """
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    description = models.TextField()
     department = models.CharField(max_length=100)
-    qualification = models.CharField(max_length=200)
-    photo = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True, null=True)
+    photo = models.ImageField(upload_to='doctors/')
+    phone_number = models.CharField(max_length=15)
     nid = models.CharField(max_length=20)
-    is_approved = models.BooleanField(default=False)
 
 
-# Patient model extending User with additional information
-class Patient(User):
-    blood_group = models.CharField(max_length=3, blank=True, null=True)
+class Timing(models.Model):
+    """
+    Timing model for storing the day and time period.
+    """
+    day = models.CharField(max_length=20)
+    time_period = models.CharField(max_length=50)
+    doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, related_name='timings')
+
+    def __str__(self):
+        return f"{self.day} {self.time_period}"
+
+
+class Patient(models.Model):
+    """
+    Patient model with a one-to-one relation with User.
+    Each patient has a user associated with it.
+    """
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    age = models.IntegerField()
+    blood_group = models.CharField(max_length=3, blank=True)
+    photo = models.ImageField(upload_to='patients/', blank=True)
+    phone_number = models.CharField(max_length=15)
     nid = models.CharField(max_length=20)
-    photo = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True, null=True)
+
+
+class Appointment(models.Model):
+    """
+    Appointment model with foreign keys to Doctor and Patient.
+    Each appointment is associated with a specific doctor and patient.
+    """
+    doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE)
+    patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
+    date = models.DateField()
+    time = models.TimeField()

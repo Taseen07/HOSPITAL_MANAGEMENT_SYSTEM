@@ -2,10 +2,19 @@
     <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Title</title>
-<!--        <h1>This is the header</h1>-->
     </head>
     <style>
+        .search-box {
+                 position: relative;
+                 top: 50px; /* Adjust this value to move the search box lower */
+                 width: 100%;
+                 display: flex;
+                 justify-content: center;
+        }
+
+        .search-box form {
+                width: 50%; /* Adjust this value to change the width of the search box */
+        }
       body {
         height: 100%;
         margin: 0;
@@ -22,6 +31,7 @@
 
     </style>
     <body>
+
     <div class="content">
         {% block content %}
 
