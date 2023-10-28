@@ -1,8 +1,8 @@
-<!-- base.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- This line is important for responsive design -->
     <!-- CSS styling for the search box, body, and content -->
     <style>
         /* Style for body */
@@ -16,6 +16,16 @@
         /* Style for content */
         .content {
             flex: 1;
+        }
+
+        /* Media query for screens smaller than 600px */
+        @media (max-width: 600px) {
+            body {
+
+            }
+            .content {
+
+            }
         }
     </style>
 </head>

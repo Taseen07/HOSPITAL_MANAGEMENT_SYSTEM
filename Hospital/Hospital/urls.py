@@ -14,7 +14,7 @@ from homepage import views
 # URL patterns for the Hospital project
 urlpatterns = [
     # Admin site
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls, name='admin'),
 
     # Home screen view
     path('', views.home_screen_view, name='home_screen_view'),

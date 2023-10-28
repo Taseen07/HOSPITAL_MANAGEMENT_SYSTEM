@@ -2,6 +2,17 @@
 {% extends 'base.html' %}
 {% include 'homepage/snippets/login_button.html' %}
 {% block content %}
-  <h2>Dashboard</h2>
+<style>
+    .center {
+        text-align: center;
+    }
+</style>
+  <h2 class="center">Dashboard</h2>
+        <div>
+            {% include 'homepage/snippets/options.html' %}
+        </div>
+        <div>
+        {% include 'homepage/snippets/login_button.html' %}
+        </div>
   <!-- User information goes here -->
 {% endblock %}

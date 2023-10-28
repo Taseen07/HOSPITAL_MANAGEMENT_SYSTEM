@@ -17,8 +17,8 @@ def login_view(request):
 
         if user is not None:
             login(request, user)
-            return redirect('/admin/') if user.is_superuser else redirect('dashboard')
-
+            next_url = request.POST.get('next', '/admin/') if user.is_superuser else 'dashboard'
+            return redirect(next_url)
     return render(request, 'homepage/login.html')
 
 
@@ -56,9 +56,8 @@ def register_doctor(request):
        doctor_form = DoctorForm()
        formset = TimingFormSet()
 
-   return render(request, 'register_doctor.html', {'user_form': user_form, 'doctor_form': doctor_form, 'formset': formset})
-
-
+   return render(request, 'register_doctor.html',
+               {'user_form': user_form, 'doctor_form': doctor_form, 'formset': formset})
 def register_patient(request):
     """
     Handle patient registration.

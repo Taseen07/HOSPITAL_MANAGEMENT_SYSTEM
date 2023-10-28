@@ -3,7 +3,7 @@
 from django.contrib import admin
 
 # Importing the models from the current directory
-from .models import Doctor, Patient, Appointment
+from .models import Doctor, Patient, Appointment, Timing
 
 
 class DoctorAdmin(admin.ModelAdmin):
@@ -38,3 +38,6 @@ admin.site.register(Patient, PatientAdmin)
 
 # Registering the Appointment model with the custom AppointmentAdmin interface
 admin.site.register(Appointment, AppointmentAdmin)
+
+# Registering the Timing model
+admin.site.register(Timing)

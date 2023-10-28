@@ -1,7 +1,5 @@
 <!-- options.html -->
-<!DOCTYPE html>
-<html>
-<head>
+{% block content %}
     <style>
         .logo {
             position: absolute;
@@ -34,16 +32,17 @@
         }
 
     </style>
-</head>
 <body>
-    <img class="logo" src="https://th.bing.com/th/id/OIP.uhmhvKXvUDYQfcKn6TVJogHaHa?w=211&h=211&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Hospital Logo">
+    <a href="{% url 'home_screen_view' %}">
+        <img class="logo" src="https://th.bing.com/th/id/OIP.uhmhvKXvUDYQfcKn6TVJogHaHa?w=211&h=211&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Hospital Logo">
+    </a>
     <div class="options">
-        <div class="option"><a href="services.html" class="normal-link">Services</a></div>
-        <div class="option"><a href="emergency-services.html" class="normal-link">Emergency Services</a></div>
-        <div class="option"><a href="doctors.html" class="normal-link">Doctors</a></div>
-        <div class="option"><a href="staff.html" class="normal-link">Staff</a></div>
-        <div class="option"><a href="blood-bank.html" class="normal-link">Blood Bank</a></div>
-        <div class="option"> <a href="other-services.html" class="normal-link">Other Services</a></div>
+        <div class="option"><a href="services" class="normal-link">Services</a></div>
+        <div class="option"><a href="emergency-services" class="normal-link">Emergency Services</a></div>
+        <div class="option"><a href="doctors" class="normal-link">Doctors</a></div>
+        <div class="option"><a href="staff" class="normal-link">Staff</a></div>
+        <div class="option"><a href="blood-bank" class="normal-link">Blood Bank</a></div>
+        <div class="option"> <a href="other-services" class="normal-link">Other Services</a></div>
     </div>
 </body>
-</html>
+{% endblock %}
