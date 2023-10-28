@@ -48,7 +48,7 @@
     {% endfor %}
 
     {% if request.user.is_authenticated %}
-    <a href="{% url 'book_appointment' doctor.user.username %}">Book an Appointment</a>
+    <a href="{% url 'book_doctor_appointment' doctor.user.username %}">Book an Appointment</a>
     {% else %}
     <a href="{% url 'login' %}">Log in to book an appointment</a>
     {% endif %}

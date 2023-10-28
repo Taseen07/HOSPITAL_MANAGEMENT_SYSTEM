@@ -1,8 +1,6 @@
 """
-URL configuration for Hospital project.
+URL configuration for the Hospital project.
 
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/4.2/topics/http/urls/
 """
 
 # Importing required modules
@@ -13,57 +11,65 @@ from homepage import views
 
 # URL patterns for the Hospital project
 urlpatterns = [
-    # Admin site
+    # Path for the admin site
     path('admin/', admin.site.urls, name='admin'),
 
-    # Home screen view
+    # Path for the home screen view
     path('', views.home_screen_view, name='home_screen_view'),
 
-    # Login view
+    # Path for the login view
     path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
 
-    # Logout view
+    # Path for the logout view
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
 
-    # Register doctor view
+    # Path for the register doctor view
     path('register/doctor/', views.register_doctor, name='register_doctor'),
 
-    # Register patient view
+    # Path for the register patient view
     path('register/patient/', views.register_patient, name='register_patient'),
 
-    # Dashboard view
+    # Path for the dashboard view
     path('dashboard/', views.dashboard, name='dashboard'),
 
-    # Search view
+    # Path for the search view
     path('search/', views.search, name='search'),
 
-    # Doctor detail view
+    # Path for the doctor detail view
     path('doctor/<str:username>/', views.doctor_detail, name='doctor_detail'),
 
-    # Terms & Conditions page
+    # Path for the Terms & Conditions page
     path('terms_conditions/', views.terms_conditions, name='terms_conditions'),
 
-    # Privacy Policy page
+    # Path for the Privacy Policy page
     path('privacy_policy/', views.privacy_policy, name='privacy_policy'),
 
-    # About Us page
+    # Path for the About Us page
     path('about_us/', views.about_us, name='about_us'),
 
-    # Services page
+    # Path for the Services page
     path('services/', views.services, name='services'),
 
-    #  Emergency-services page
+    # Path for the Emergency Services page
     path('emergency-services/', views.emergency_services, name='emergency_services'),
 
-    # Doctor's List page
+    # Path for the Doctors List page
     path('doctors/', views.doctors, name='doctors'),
 
-    # Staff page
+    # Path for the Staff page
     path('staff/', views.staff, name='staff'),
 
-    # Blood Bank page
+    # Path for the Blood Bank page
     path('blood-bank/', views.blood_bank, name='blood_bank'),
 
-    # Other Services page
+    # Path for the Other Services page
     path('other-services/', views.other_services, name='other_services'),
+
+    # Path for booking a doctor's appointment
+    path('doctor/<str:username>/book_doctor_appointment/',
+         views.book_doctor_appointment, name='book_doctor_appointment'),
+
+    # Path for the successful booking of doctor's appointment
+    path('doctor/<str:username>/appointment_confirmation/',
+         views.doctor_appointment_confirmation, name='doctor_appointment_confirmation'),
 ]
