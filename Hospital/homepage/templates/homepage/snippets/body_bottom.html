@@ -1,7 +1,6 @@
-<!DOCTYPE html>
-<html>
-
-<head>
+<!-- body_bottom.html -->
+{% block content %}
+    <!-- CSS styling for the body and footer -->
     <style>
         body {
             display: flex;
@@ -28,22 +27,20 @@
             color: #000;
         }
     </style>
-</head>
 
-<body class = "body">
-    <!-- Your website content goes here -->
-
+    <!-- Footer content -->
     <div class="footer-box">
         <div>
+            <!-- Hardcoded address and contact information -->
             <p>Address: 123 Main St, City, State, ZIP</p>
             <p>Contact: (123) 456-7890</p>
         </div>
         <div>
-            <p><a href="https://www.example.com/terms" target="_blank">Terms & Conditions</a></p>
-            <p><a href="https://www.example.com/policies" target="_blank">Privacy Policy</a></p>
-            <p><a href="https://www.example.com/about" target="_blank">About Us</a></p>
+            <!-- The href can be replaced with url names defined in urls.py -->
+            <p><a href="{% url 'terms_conditions' %}" target="_blank">Terms & Conditions</a></p>
+            <p><a href="{% url 'privacy_policy' %}" target="_blank">Privacy Policy</a></p>
+            <p><a href="{% url 'about_us' %}" target="_blank">About Us</a></p>
         </div>
     </div>
-</body>
 
-</html>
+{% endblock content %}

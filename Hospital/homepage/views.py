@@ -125,3 +125,57 @@ def doctor_detail(request, username):
     """Display details for a specific doctor."""
     doctor = Doctor.objects.get(user__username=username)
     return render(request, 'doctor_detail.html', {'doctor': doctor})
+
+def terms_conditions(request):
+    """
+    View function to handle requests for the Terms & Conditions page.
+    """
+    return render(request, 'terms_conditions.html')
+
+def privacy_policy(request):
+    """
+    View function to handle requests for the Privacy Policy page.
+    """
+    return render(request, 'privacy_policy.html')
+
+def about_us(request):
+    """
+    View function to handle requests for the About Us page.
+    """
+    return render(request, 'about_us.html')
+
+def services(request):
+    """
+    View function to render the services page.
+    """
+    return render(request, 'services.html')
+
+def emergency_services(request):
+    """
+    View function to render the emergency services page.
+    """
+    return render(request, 'emergency_services.html')
+
+def doctors(request):
+    """
+    View function to render the doctors page.
+    """
+    return render(request, 'doctors.html')
+
+def staff(request):
+    """
+    View function to render the staff page.
+    """
+    return render(request, 'staff.html')
+
+def blood_bank(request):
+    """
+    View function to render the blood bank page.
+    """
+    return render(request, 'blood_bank.html')
+
+def other_services(request):
+    """
+    View function to render the other services page.
+    """
+    return render(request, 'other_services.html')

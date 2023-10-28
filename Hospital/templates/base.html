@@ -1,45 +1,35 @@
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-    </head>
+<!-- base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- CSS styling for the search box, body, and content -->
     <style>
-        .search-box {
-                 position: relative;
-                 top: 50px; /* Adjust this value to move the search box lower */
-                 width: 100%;
-                 display: flex;
-                 justify-content: center;
+        /* Style for body */
+        body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
         }
 
-        .search-box form {
-                width: 50%; /* Adjust this value to change the width of the search box */
-        }
-      body {
-        height: 100%;
-        margin: 0;
-        }
-
-       body {
-        display: flex;
-        flex-direction: column;
-        }
-
+        /* Style for content */
         .content {
-        flex: 1;
+            flex: 1;
         }
-
     </style>
-    <body>
-
+</head>
+<body>
+    <!-- Main content -->
     <div class="content">
         {% block content %}
-
+        <!-- Content to be inserted here -->
         {% endblock content %}
     </div>
 
+    <!-- Include body bottom snippet -->
     <div>
         {% include 'homepage/snippets/body_bottom.html' %}
     </div>
-    </body>
-    </html>
+</body>
+</html>
