@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Request Emergency Services</h1>
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            <div class="{{ category }}">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+<form action="/emergency" method="post">
+    <label>Name: <input type="text" name="name" required></label><br>
+    <label>Age: <input type="text" name="age" required></label><br>
+    <label>NID: <input type="text" name="nid" required></label><br>
+    <label>Phone: <input type="text" name="phone" required></label><br>
+    <label>Service Type:
+        <select name="service_type">
+            {% for service, details in services.items() %}
+                <option value="{{ service }}">{{ service }} (Cost: ${{ details.cost }}, ETA: {{ details.ETA }})</option>
+            {% endfor %}
+        </select>
+    </label><br>
+    <input type="submit" value="Request Service">
+</form>
+<a href="/">Back to Home</a>
+{% endblock %}

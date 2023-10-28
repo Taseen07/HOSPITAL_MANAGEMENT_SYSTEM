@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Confirm Emergency Service Request</h1>
+<p>Please review the details below:</p>
+<ul>
+    <li><strong>Name:</strong> {{ name }}</li>
+    <li><strong>Age:</strong> {{ age }}</li>
+    <li><strong>NID:</strong> {{ nid }}</li>
+    <li><strong>Phone:</strong> {{ phone }}</li>
+    <li><strong>Service Type:</strong> {{ service_type }}</li>
+    <li><strong>Cost:</strong> ${{ service_details.cost }}</li>
+    <li><strong>ETA:</strong> {{ service_details.ETA }}</li>
+</ul>
+<form action="/emergency" method="post">
+    <input type="hidden" name="name" value="{{ name }}">
+    <input type="hidden" name="age" value="{{ age }}">
+    <input type="hidden" name="nid" value="{{ nid }}">
+    <input type="hidden" name="phone" value="{{ phone }}">
+    <input type="hidden" name="service_type" value="{{ service_type }}">
+    <input type="submit" name="confirm" value="Confirm Request">
+</form>
+<a href="/emergency">Cancel and Go Back</a>
+{% endblock %}

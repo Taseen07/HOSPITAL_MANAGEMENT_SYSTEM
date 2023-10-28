@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>{{ category }}</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Test Name</th>
+            <th>Cost</th>
+            <th>Room</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for test, details in tests.items() %}
+            <tr>
+                <td>{{ test }}</td>
+                <td>${{ details['cost'] }}</td>
+                <td>{{ details['room'] }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<br>
+<a href="/" class="btn btn-primary">Back to Home</a>
+{% endblock %}

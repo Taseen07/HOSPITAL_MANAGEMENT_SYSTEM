@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Select a Diagnostic Category</h2>
+    <p>Please select a diagnostic category and enter a specific test to search for it.</p>
+
+    <form method="post" class="diagnostic-form">
+        <div class="form-group">
+            <label for="category">Diagnostic Category:</label>
+            <select name="category" id="category" class="form-control">
+                {% for category in categories %}
+                    <option value="{{ category }}">{{ category }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="search_query">Search for a specific test:</label>
+            <input type="text" name="search_query" id="search_query" class="form-control" placeholder="e.g. CT Scan">
+        </div>
+        <input type="submit" value="Search" class="btn btn-primary">
+    </form>
+</div>
+<a href="/" class="btn btn-primary">Back to Home</a>
+{% endblock %}
