@@ -24,6 +24,9 @@ class Doctor(models.Model):
     phone_number = models.CharField(max_length=15)
     nid = models.CharField(max_length=20)
 
+    def __str__(self):
+        return self.user.username
+
 
 class Timing(models.Model):
     """
@@ -65,6 +68,9 @@ class Patient(models.Model):
     photo = models.ImageField(upload_to='patients/', blank=True)
     phone_number = models.CharField(max_length=15)
     nid = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.user.username
 
 
 class Appointment(models.Model):

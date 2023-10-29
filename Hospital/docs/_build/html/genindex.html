@@ -103,8 +103,6 @@
 </li>
       <li><a href="homepage.html#homepage.models.Appointment.MultipleObjectsReturned">Appointment.MultipleObjectsReturned</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="homepage.html#homepage.models.Doctor.appointment_set">appointment_set (homepage.models.Doctor attribute)</a>
 
       <ul>
@@ -113,7 +111,11 @@
         <li><a href="homepage.html#homepage.models.Timing.appointment_set">(homepage.models.Timing attribute)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="homepage.html#homepage.admin.AppointmentAdmin">AppointmentAdmin (class in homepage.admin)</a>
+</li>
+      <li><a href="homepage.html#homepage.tests.AppointmentBookingTest">AppointmentBookingTest (class in homepage.tests)</a>
 </li>
       <li><a href="homepage.html#homepage.forms.AppointmentForm">AppointmentForm (class in homepage.forms)</a>
 </li>
@@ -220,6 +222,8 @@
       <li><a href="homepage.html#homepage.forms.DoctorForm">DoctorForm (class in homepage.forms)</a>
 </li>
       <li><a href="homepage.html#homepage.forms.DoctorForm.Meta">DoctorForm.Meta (class in homepage.forms)</a>
+</li>
+      <li><a href="homepage.html#homepage.tests.DoctorModelTest">DoctorModelTest (class in homepage.tests)</a>
 </li>
       <li><a href="homepage.html#homepage.views.doctors">doctors() (in module homepage.views)</a>
 </li>
@@ -586,11 +590,13 @@
 </li>
       <li><a href="homepage.html#homepage.admin.PatientAdmin">PatientAdmin (class in homepage.admin)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="homepage.html#homepage.forms.PatientForm">PatientForm (class in homepage.forms)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="homepage.html#homepage.forms.PatientForm.Meta">PatientForm.Meta (class in homepage.forms)</a>
+</li>
+      <li><a href="homepage.html#homepage.tests.PatientModelTest">PatientModelTest (class in homepage.tests)</a>
 </li>
       <li><a href="homepage.html#homepage.models.Doctor.phone_number">phone_number (homepage.models.Doctor attribute)</a>
 
@@ -614,9 +620,13 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="homepage.html#homepage.views.register_doctor">register_doctor() (in module homepage.views)</a>
 </li>
+      <li><a href="homepage.html#homepage.views.register_patient">register_patient() (in module homepage.views)</a>
+</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="homepage.html#homepage.views.register_patient">register_patient() (in module homepage.views)</a>
+      <li><a href="homepage.html#homepage.tests.RegisterDoctorViewTest">RegisterDoctorViewTest (class in homepage.tests)</a>
+</li>
+      <li><a href="homepage.html#homepage.tests.RegisterPatientViewTest">RegisterPatientViewTest (class in homepage.tests)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -626,10 +636,26 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="homepage.html#homepage.views.search">search() (in module homepage.views)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="homepage.html#homepage.tests.SearchViewTest">SearchViewTest (class in homepage.tests)</a>
+</li>
       <li><a href="homepage.html#homepage.views.services">services() (in module homepage.views)</a>
 </li>
+      <li><a href="homepage.html#homepage.tests.AppointmentBookingTest.setUp">setUp() (homepage.tests.AppointmentBookingTest method)</a>
+
+      <ul>
+        <li><a href="homepage.html#homepage.tests.DoctorModelTest.setUp">(homepage.tests.DoctorModelTest method)</a>
+</li>
+        <li><a href="homepage.html#homepage.tests.PatientModelTest.setUp">(homepage.tests.PatientModelTest method)</a>
+</li>
+        <li><a href="homepage.html#homepage.tests.RegisterDoctorViewTest.setUp">(homepage.tests.RegisterDoctorViewTest method)</a>
+</li>
+        <li><a href="homepage.html#homepage.tests.RegisterPatientViewTest.setUp">(homepage.tests.RegisterPatientViewTest method)</a>
+</li>
+        <li><a href="homepage.html#homepage.tests.SearchViewTest.setUp">(homepage.tests.SearchViewTest method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="homepage.html#homepage.views.staff">staff() (in module homepage.views)</a>
 </li>
   </ul></td>
@@ -640,16 +666,28 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="homepage.html#homepage.views.terms_conditions">terms_conditions() (in module homepage.views)</a>
 </li>
+      <li><a href="homepage.html#homepage.tests.AppointmentBookingTest.test_book_doctor_appointment_view">test_book_doctor_appointment_view() (homepage.tests.AppointmentBookingTest method)</a>
+</li>
+      <li><a href="homepage.html#homepage.tests.DoctorModelTest.test_doctor_creation">test_doctor_creation() (homepage.tests.DoctorModelTest method)</a>
+</li>
+      <li><a href="homepage.html#homepage.tests.PatientModelTest.test_patient_creation">test_patient_creation() (homepage.tests.PatientModelTest method)</a>
+</li>
+      <li><a href="homepage.html#homepage.tests.RegisterDoctorViewTest.test_register_doctor_view">test_register_doctor_view() (homepage.tests.RegisterDoctorViewTest method)</a>
+</li>
+      <li><a href="homepage.html#homepage.tests.RegisterPatientViewTest.test_register_patient_view">test_register_patient_view() (homepage.tests.RegisterPatientViewTest method)</a>
+</li>
+      <li><a href="homepage.html#homepage.tests.SearchViewTest.test_search_view">test_search_view() (homepage.tests.SearchViewTest method)</a>
+</li>
       <li><a href="homepage.html#homepage.models.Timing.time_period">time_period (homepage.models.Timing attribute)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="homepage.html#homepage.models.Timing">Timing (class in homepage.models)</a>
 </li>
       <li><a href="homepage.html#homepage.models.Appointment.timing">timing (homepage.models.Appointment attribute)</a>
 </li>
       <li><a href="homepage.html#homepage.models.Timing.DoesNotExist">Timing.DoesNotExist</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="homepage.html#homepage.models.Timing.MultipleObjectsReturned">Timing.MultipleObjectsReturned</a>
 </li>
       <li><a href="homepage.html#homepage.models.Appointment.timing_id">timing_id (homepage.models.Appointment attribute)</a>

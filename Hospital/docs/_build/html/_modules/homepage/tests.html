@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>homepage.tests &mdash; Hospital Management System 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=8d563738"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Hospital Management System
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">Hospital</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Hospital Management System</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">homepage.tests</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for homepage.tests</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Import required modules</span>
+<span class="kn">from</span> <span class="nn">django.test</span> <span class="kn">import</span> <span class="n">TestCase</span><span class="p">,</span> <span class="n">Client</span>
+<span class="kn">from</span> <span class="nn">django.contrib.auth.models</span> <span class="kn">import</span> <span class="n">User</span>
+<span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">reverse</span>
+<span class="kn">from</span> <span class="nn">django.core.files.uploadedfile</span> <span class="kn">import</span> <span class="n">SimpleUploadedFile</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Doctor</span><span class="p">,</span> <span class="n">Patient</span><span class="p">,</span> <span class="n">Appointment</span><span class="p">,</span> <span class="n">Timing</span>
+
+
+<div class="viewcode-block" id="DoctorModelTest">
+<a class="viewcode-back" href="../../homepage.html#homepage.tests.DoctorModelTest">[docs]</a>
+<span class="k">class</span> <span class="nc">DoctorModelTest</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Test case for the Doctor model.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="DoctorModelTest.setUp">
+<a class="viewcode-back" href="../../homepage.html#homepage.tests.DoctorModelTest.setUp">[docs]</a>
+    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set up test data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create_user</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s1">&#39;testuser&#39;</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s1">&#39;12345&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">doctor</span> <span class="o">=</span> <span class="n">Doctor</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+            <span class="n">user</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">user</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Test doctor&#39;</span><span class="p">,</span>
+            <span class="n">department</span><span class="o">=</span><span class="s1">&#39;Test department&#39;</span><span class="p">,</span>
+            <span class="n">phone_number</span><span class="o">=</span><span class="s1">&#39;1234567890&#39;</span><span class="p">,</span>
+            <span class="n">nid</span><span class="o">=</span><span class="s1">&#39;12345678901234567890&#39;</span><span class="p">,</span>
+            <span class="n">photo</span><span class="o">=</span><span class="n">SimpleUploadedFile</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;test_image.jpg&#39;</span><span class="p">,</span> <span class="n">content</span><span class="o">=</span><span class="sa">b</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">content_type</span><span class="o">=</span><span class="s1">&#39;image/jpeg&#39;</span><span class="p">)</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DoctorModelTest.test_doctor_creation">
+<a class="viewcode-back" href="../../homepage.html#homepage.tests.DoctorModelTest.test_doctor_creation">[docs]</a>
+    <span class="k">def</span> <span class="nf">test_doctor_creation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Test doctor creation.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">doctor</span><span class="p">,</span> <span class="n">Doctor</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">doctor</span><span class="o">.</span><span class="fm">__str__</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">doctor</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">username</span><span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="PatientModelTest">
+<a class="viewcode-back" href="../../homepage.html#homepage.tests.PatientModelTest">[docs]</a>
+<span class="k">class</span> <span class="nc">PatientModelTest</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Test case for the Patient model.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="PatientModelTest.setUp">
+<a class="viewcode-back" href="../../homepage.html#homepage.tests.PatientModelTest.setUp">[docs]</a>
+    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set up test data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create_user</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s1">&#39;testuser&#39;</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s1">&#39;12345&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">patient</span> <span class="o">=</span> <span class="n">Patient</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+            <span class="n">user</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">user</span><span class="p">,</span>
+            <span class="n">age</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+            <span class="n">blood_group</span><span class="o">=</span><span class="s1">&#39;A+&#39;</span><span class="p">,</span>
+            <span class="n">phone_number</span><span class="o">=</span><span class="s1">&#39;1234567890&#39;</span><span class="p">,</span>
+            <span class="n">nid</span><span class="o">=</span><span class="s1">&#39;12345678901234567890&#39;</span><span class="p">,</span>
+            <span class="n">photo</span><span class="o">=</span><span class="n">SimpleUploadedFile</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;test_image.jpg&#39;</span><span class="p">,</span> <span class="n">content</span><span class="o">=</span><span class="sa">b</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">content_type</span><span class="o">=</span><span class="s1">&#39;image/jpeg&#39;</span><span class="p">)</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="PatientModelTest.test_patient_creation">
+<a class="viewcode-back" href="../../homepage.html#homepage.tests.PatientModelTest.test_patient_creation">[docs]</a>
+    <span class="k">def</span> <span class="nf">test_patient_creation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Test patient creation.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">patient</span><span class="p">,</span> <span class="n">Patient</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">patient</span><span class="o">.</span><span class="fm">__str__</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">patient</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">username</span><span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="RegisterDoctorViewTest">
+<a class="viewcode-back" href="../../homepage.html#homepage.tests.RegisterDoctorViewTest">[docs]</a>
+<span class="k">class</span> <span class="nc">RegisterDoctorViewTest</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Test case for the register_doctor view.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="RegisterDoctorViewTest.setUp">
+<a class="viewcode-back" href="../../homepage.html#homepage.tests.RegisterDoctorViewTest.setUp">[docs]</a>
+    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set up test client.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="RegisterDoctorViewTest.test_register_doctor_view">
+<a class="viewcode-back" href="../../homepage.html#homepage.tests.RegisterDoctorViewTest.test_register_doctor_view">[docs]</a>
+    <span class="k">def</span> <span class="nf">test_register_doctor_view</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Test register_doctor view.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s1">&#39;register_doctor&#39;</span><span class="p">))</span>
+
+        <span class="c1"># Check status code and template used</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTemplateUsed</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="s1">&#39;register_doctor.html&#39;</span><span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="RegisterPatientViewTest">
+<a class="viewcode-back" href="../../homepage.html#homepage.tests.RegisterPatientViewTest">[docs]</a>
+<span class="k">class</span> <span class="nc">RegisterPatientViewTest</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Test case for the register_patient view.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="RegisterPatientViewTest.setUp">
+<a class="viewcode-back" href="../../homepage.html#homepage.tests.RegisterPatientViewTest.setUp">[docs]</a>
+    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set up test client.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="RegisterPatientViewTest.test_register_patient_view">
+<a class="viewcode-back" href="../../homepage.html#homepage.tests.RegisterPatientViewTest.test_register_patient_view">[docs]</a>
+    <span class="k">def</span> <span class="nf">test_register_patient_view</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Test register_patient view.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># Test GET request</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s1">&#39;register_patient&#39;</span><span class="p">))</span>
+
+        <span class="c1"># Check status code and template used</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTemplateUsed</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="s1">&#39;register_patient.html&#39;</span><span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="SearchViewTest">
+<a class="viewcode-back" href="../../homepage.html#homepage.tests.SearchViewTest">[docs]</a>
+<span class="k">class</span> <span class="nc">SearchViewTest</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Test case for the search view.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="SearchViewTest.setUp">
+<a class="viewcode-back" href="../../homepage.html#homepage.tests.SearchViewTest.setUp">[docs]</a>
+    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set up test data and client.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># Create two doctors</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">user1</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create_user</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s1">&#39;doctor1&#39;</span><span class="p">,</span> <span class="n">first_name</span><span class="o">=</span><span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="n">last_name</span><span class="o">=</span><span class="s1">&#39;Doe&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">doctor1</span> <span class="o">=</span> <span class="n">Doctor</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+            <span class="n">user</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">user1</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Test doctor 1&#39;</span><span class="p">,</span>
+            <span class="n">department</span><span class="o">=</span><span class="s1">&#39;Test department&#39;</span><span class="p">,</span>
+            <span class="n">phone_number</span><span class="o">=</span><span class="s1">&#39;1234567890&#39;</span><span class="p">,</span>
+            <span class="n">nid</span><span class="o">=</span><span class="s1">&#39;12345678901234567890&#39;</span><span class="p">,</span>
+            <span class="n">photo</span><span class="o">=</span><span class="n">SimpleUploadedFile</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;test_image.jpg&#39;</span><span class="p">,</span> <span class="n">content</span><span class="o">=</span><span class="sa">b</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">content_type</span><span class="o">=</span><span class="s1">&#39;image/jpeg&#39;</span><span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">user2</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create_user</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s1">&#39;doctor2&#39;</span><span class="p">,</span> <span class="n">first_name</span><span class="o">=</span><span class="s1">&#39;Jane&#39;</span><span class="p">,</span> <span class="n">last_name</span><span class="o">=</span><span class="s1">&#39;Doe&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">doctor2</span> <span class="o">=</span> <span class="n">Doctor</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+            <span class="n">user</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">user2</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Test doctor 2&#39;</span><span class="p">,</span>
+            <span class="n">department</span><span class="o">=</span><span class="s1">&#39;Test department&#39;</span><span class="p">,</span>
+            <span class="n">phone_number</span><span class="o">=</span><span class="s1">&#39;1234567890&#39;</span><span class="p">,</span>
+            <span class="n">nid</span><span class="o">=</span><span class="s1">&#39;12345678901234567890&#39;</span><span class="p">,</span>
+            <span class="n">photo</span><span class="o">=</span><span class="n">SimpleUploadedFile</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;test_image.jpg&#39;</span><span class="p">,</span> <span class="n">content</span><span class="o">=</span><span class="sa">b</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">content_type</span><span class="o">=</span><span class="s1">&#39;image/jpeg&#39;</span><span class="p">)</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="SearchViewTest.test_search_view">
+<a class="viewcode-back" href="../../homepage.html#homepage.tests.SearchViewTest.test_search_view">[docs]</a>
+    <span class="k">def</span> <span class="nf">test_search_view</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test search view&quot;&quot;&quot;</span>
+
+        <span class="c1"># Test GET request</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s1">&#39;search&#39;</span><span class="p">))</span>
+
+        <span class="c1"># Check status code and template used</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTemplateUsed</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="s2">&quot;homepage/homepage.html&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Test POST request with no doctors found</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s1">&#39;search&#39;</span><span class="p">),</span> <span class="p">{</span><span class="s1">&#39;search_term&#39;</span><span class="p">:</span> <span class="s1">&#39;Nonexistent&#39;</span><span class="p">})</span>
+
+        <span class="c1"># Check if error message is displayed</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertContains</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="s1">&#39;No doctor found&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Test POST request with one doctor found by first name</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s1">&#39;search&#39;</span><span class="p">),</span> <span class="p">{</span><span class="s1">&#39;search_term&#39;</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">})</span>
+
+        <span class="c1"># Check if correct doctor is found</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertContains</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="s1">&#39;John Doe&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Test POST request with one doctor found by last name</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s1">&#39;search&#39;</span><span class="p">),</span> <span class="p">{</span><span class="s1">&#39;search_term&#39;</span><span class="p">:</span> <span class="s1">&#39;Doe&#39;</span><span class="p">})</span>
+
+        <span class="c1"># Check if correct doctors are found</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertContains</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="s1">&#39;John Doe&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertContains</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="s1">&#39;Jane Doe&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Test POST request with multiple doctors found by full name</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s1">&#39;search&#39;</span><span class="p">),</span> <span class="p">{</span><span class="s1">&#39;search_term&#39;</span><span class="p">:</span> <span class="s1">&#39;John Doe&#39;</span><span class="p">})</span>
+
+        <span class="c1"># Check if correct doctor is found</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertContains</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="s1">&#39;John Doe&#39;</span><span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="AppointmentBookingTest">
+<a class="viewcode-back" href="../../homepage.html#homepage.tests.AppointmentBookingTest">[docs]</a>
+<span class="k">class</span> <span class="nc">AppointmentBookingTest</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Test case for the book_doctor_appointment view.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="AppointmentBookingTest.setUp">
+<a class="viewcode-back" href="../../homepage.html#homepage.tests.AppointmentBookingTest.setUp">[docs]</a>
+    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set up test data and client.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># Create a doctor and a patient</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">user1</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create_user</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s1">&#39;doctor1&#39;</span><span class="p">,</span> <span class="n">first_name</span><span class="o">=</span><span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="n">last_name</span><span class="o">=</span><span class="s1">&#39;Doe&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">doctor</span> <span class="o">=</span> <span class="n">Doctor</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+            <span class="n">user</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">user1</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Test doctor&#39;</span><span class="p">,</span>
+            <span class="n">department</span><span class="o">=</span><span class="s1">&#39;Test department&#39;</span><span class="p">,</span>
+            <span class="n">phone_number</span><span class="o">=</span><span class="s1">&#39;1234567890&#39;</span><span class="p">,</span>
+            <span class="n">nid</span><span class="o">=</span><span class="s1">&#39;12345678901234567890&#39;</span><span class="p">,</span>
+            <span class="n">photo</span><span class="o">=</span><span class="n">SimpleUploadedFile</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;test_image.jpg&#39;</span><span class="p">,</span> <span class="n">content</span><span class="o">=</span><span class="sa">b</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">content_type</span><span class="o">=</span><span class="s1">&#39;image/jpeg&#39;</span><span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">user2</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create_user</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s1">&#39;patient1&#39;</span><span class="p">,</span> <span class="n">first_name</span><span class="o">=</span><span class="s1">&#39;Jane&#39;</span><span class="p">,</span> <span class="n">last_name</span><span class="o">=</span><span class="s1">&#39;Doe&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">patient</span> <span class="o">=</span> <span class="n">Patient</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+            <span class="n">user</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">user2</span><span class="p">,</span>
+            <span class="n">age</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+            <span class="n">blood_group</span><span class="o">=</span><span class="s1">&#39;A+&#39;</span><span class="p">,</span>
+            <span class="n">phone_number</span><span class="o">=</span><span class="s1">&#39;1234567890&#39;</span><span class="p">,</span>
+            <span class="n">nid</span><span class="o">=</span><span class="s1">&#39;12345678901234567890&#39;</span><span class="p">,</span>
+            <span class="n">photo</span><span class="o">=</span><span class="n">SimpleUploadedFile</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;test_image.jpg&#39;</span><span class="p">,</span> <span class="n">content</span><span class="o">=</span><span class="sa">b</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">content_type</span><span class="o">=</span><span class="s1">&#39;image/jpeg&#39;</span><span class="p">)</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="AppointmentBookingTest.test_book_doctor_appointment_view">
+<a class="viewcode-back" href="../../homepage.html#homepage.tests.AppointmentBookingTest.test_book_doctor_appointment_view">[docs]</a>
+    <span class="k">def</span> <span class="nf">test_book_doctor_appointment_view</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Test book_doctor_appointment view.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># Log in as patient</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s1">&#39;patient2&#39;</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s1">&#39;patientpatient&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Test GET request</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s1">&#39;book_doctor_appointment&#39;</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">doctor</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">username</span><span class="p">]))</span>
+
+        <span class="c1"># Check status code and template used</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTemplateUsed</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="s1">&#39;book_doctor_appointment.html&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Test POST request with valid data</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s1">&#39;book_doctor_appointment&#39;</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">doctor</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">username</span><span class="p">]),</span> <span class="p">{</span>
+            <span class="s1">&#39;timing&#39;</span><span class="p">:</span> <span class="mi">1</span>
+        <span class="p">})</span></div>
+</div>
+
+
+        <span class="c1"># Check if appointment is created and redirected to confirmation page</span>
+        <span class="c1"># self.assertEqual(response.status_code, 302)</span>
+        <span class="c1"># self.assertRedirects(response, reverse(&#39;doctor_appointment_confirmation&#39;, args=[self.doctor.user.username]))</span>
+        <span class="c1"># self.assertEqual(Appointment.objects.count(), 1)</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Abdul Mueed.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -78,7 +78,15 @@
 <li class="toctree-l4"><a class="reference internal" href="#homepage.models.Timing"><code class="docutils literal notranslate"><span class="pre">Timing</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#module-homepage.tests">homepage.tests module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-homepage.tests">homepage.tests module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#homepage.tests.AppointmentBookingTest"><code class="docutils literal notranslate"><span class="pre">AppointmentBookingTest</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#homepage.tests.DoctorModelTest"><code class="docutils literal notranslate"><span class="pre">DoctorModelTest</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#homepage.tests.PatientModelTest"><code class="docutils literal notranslate"><span class="pre">PatientModelTest</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#homepage.tests.RegisterDoctorViewTest"><code class="docutils literal notranslate"><span class="pre">RegisterDoctorViewTest</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#homepage.tests.RegisterPatientViewTest"><code class="docutils literal notranslate"><span class="pre">RegisterPatientViewTest</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#homepage.tests.SearchViewTest"><code class="docutils literal notranslate"><span class="pre">SearchViewTest</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#module-homepage.views">homepage.views module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#homepage.views.about_us"><code class="docutils literal notranslate"><span class="pre">about_us()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#homepage.views.bed_reservation"><code class="docutils literal notranslate"><span class="pre">bed_reservation()</span></code></a></li>
@@ -940,6 +948,120 @@ object the first time, the query is executed.</p>
 </section>
 <section id="module-homepage.tests">
 <span id="homepage-tests-module"></span><h2>homepage.tests module<a class="headerlink" href="#module-homepage.tests" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="homepage.tests.AppointmentBookingTest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">homepage.tests.</span></span><span class="sig-name descname"><span class="pre">AppointmentBookingTest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/homepage/tests.html#AppointmentBookingTest"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#homepage.tests.AppointmentBookingTest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
+<p>Test case for the book_doctor_appointment view.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="homepage.tests.AppointmentBookingTest.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/homepage/tests.html#AppointmentBookingTest.setUp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#homepage.tests.AppointmentBookingTest.setUp" title="Link to this definition"></a></dt>
+<dd><p>Set up test data and client.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="homepage.tests.AppointmentBookingTest.test_book_doctor_appointment_view">
+<span class="sig-name descname"><span class="pre">test_book_doctor_appointment_view</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/homepage/tests.html#AppointmentBookingTest.test_book_doctor_appointment_view"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#homepage.tests.AppointmentBookingTest.test_book_doctor_appointment_view" title="Link to this definition"></a></dt>
+<dd><p>Test book_doctor_appointment view.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="homepage.tests.DoctorModelTest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">homepage.tests.</span></span><span class="sig-name descname"><span class="pre">DoctorModelTest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/homepage/tests.html#DoctorModelTest"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#homepage.tests.DoctorModelTest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
+<p>Test case for the Doctor model.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="homepage.tests.DoctorModelTest.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/homepage/tests.html#DoctorModelTest.setUp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#homepage.tests.DoctorModelTest.setUp" title="Link to this definition"></a></dt>
+<dd><p>Set up test data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="homepage.tests.DoctorModelTest.test_doctor_creation">
+<span class="sig-name descname"><span class="pre">test_doctor_creation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/homepage/tests.html#DoctorModelTest.test_doctor_creation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#homepage.tests.DoctorModelTest.test_doctor_creation" title="Link to this definition"></a></dt>
+<dd><p>Test doctor creation.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="homepage.tests.PatientModelTest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">homepage.tests.</span></span><span class="sig-name descname"><span class="pre">PatientModelTest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/homepage/tests.html#PatientModelTest"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#homepage.tests.PatientModelTest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
+<p>Test case for the Patient model.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="homepage.tests.PatientModelTest.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/homepage/tests.html#PatientModelTest.setUp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#homepage.tests.PatientModelTest.setUp" title="Link to this definition"></a></dt>
+<dd><p>Set up test data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="homepage.tests.PatientModelTest.test_patient_creation">
+<span class="sig-name descname"><span class="pre">test_patient_creation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/homepage/tests.html#PatientModelTest.test_patient_creation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#homepage.tests.PatientModelTest.test_patient_creation" title="Link to this definition"></a></dt>
+<dd><p>Test patient creation.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="homepage.tests.RegisterDoctorViewTest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">homepage.tests.</span></span><span class="sig-name descname"><span class="pre">RegisterDoctorViewTest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/homepage/tests.html#RegisterDoctorViewTest"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#homepage.tests.RegisterDoctorViewTest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
+<p>Test case for the register_doctor view.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="homepage.tests.RegisterDoctorViewTest.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/homepage/tests.html#RegisterDoctorViewTest.setUp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#homepage.tests.RegisterDoctorViewTest.setUp" title="Link to this definition"></a></dt>
+<dd><p>Set up test client.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="homepage.tests.RegisterDoctorViewTest.test_register_doctor_view">
+<span class="sig-name descname"><span class="pre">test_register_doctor_view</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/homepage/tests.html#RegisterDoctorViewTest.test_register_doctor_view"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#homepage.tests.RegisterDoctorViewTest.test_register_doctor_view" title="Link to this definition"></a></dt>
+<dd><p>Test register_doctor view.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="homepage.tests.RegisterPatientViewTest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">homepage.tests.</span></span><span class="sig-name descname"><span class="pre">RegisterPatientViewTest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/homepage/tests.html#RegisterPatientViewTest"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#homepage.tests.RegisterPatientViewTest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
+<p>Test case for the register_patient view.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="homepage.tests.RegisterPatientViewTest.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/homepage/tests.html#RegisterPatientViewTest.setUp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#homepage.tests.RegisterPatientViewTest.setUp" title="Link to this definition"></a></dt>
+<dd><p>Set up test client.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="homepage.tests.RegisterPatientViewTest.test_register_patient_view">
+<span class="sig-name descname"><span class="pre">test_register_patient_view</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/homepage/tests.html#RegisterPatientViewTest.test_register_patient_view"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#homepage.tests.RegisterPatientViewTest.test_register_patient_view" title="Link to this definition"></a></dt>
+<dd><p>Test register_patient view.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="homepage.tests.SearchViewTest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">homepage.tests.</span></span><span class="sig-name descname"><span class="pre">SearchViewTest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/homepage/tests.html#SearchViewTest"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#homepage.tests.SearchViewTest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
+<p>Test case for the search view.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="homepage.tests.SearchViewTest.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/homepage/tests.html#SearchViewTest.setUp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#homepage.tests.SearchViewTest.setUp" title="Link to this definition"></a></dt>
+<dd><p>Set up test data and client.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="homepage.tests.SearchViewTest.test_search_view">
+<span class="sig-name descname"><span class="pre">test_search_view</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/homepage/tests.html#SearchViewTest.test_search_view"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#homepage.tests.SearchViewTest.test_search_view" title="Link to this definition"></a></dt>
+<dd><p>Test search view</p>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 <section id="module-homepage.views">
 <span id="homepage-views-module"></span><h2>homepage.views module<a class="headerlink" href="#module-homepage.views" title="Link to this heading"></a></h2>
