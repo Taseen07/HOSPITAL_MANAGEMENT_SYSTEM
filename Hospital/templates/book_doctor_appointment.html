@@ -1,0 +1,29 @@
+<!-- book_doctor_appointment.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <div>
+        {% include 'homepage/snippets/search_box.html' %}
+  </div>
+  <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+    <form method="post" style="text-align: center;">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Book Appointment</button>
+      {% if error_message %}
+        <p>{{ error_message }}</p>
+      {% endif %}
+      <a href="{% url 'doctor_detail' username %}"
+         style="display: inline-block; margin-top: 20px;
+         padding: 10px 20px; background-color: #007BFF;
+         color: white; text-decoration: none; border-radius: 5px;">Back to Doctor's Detail</a>
+    </form>
+  </div>
+  <div>
+        {% include 'homepage/snippets/login_button.html' %}
+  </div>
+  <div>
+       {% include 'homepage/snippets/options.html' %}
+  </div>
+
+{% endblock %}

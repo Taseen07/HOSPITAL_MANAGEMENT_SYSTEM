@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for character set and viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Title of the page -->
+    <title>Doctor's Page</title>
+
+    <!-- Internal stylesheet for combining HTML and CSS -->
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            display: flex;
+        }
+
+        /* Updated styling for the sidebar */
+        .sidebar {
+            width: 200px; /* Adjusted width to make it longer */
+            height: 605px;
+            background-color: #3CB371; /* Light green background color */
+            color: #fff; /* White text color */
+            padding: 40px;
+            text-align: center;
+        }
+
+        .sidebar h2 {
+            margin-bottom: 20px;
+        }
+
+        .sidebar button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* Styling for the dashboard button */
+        .sidebar button {
+            background-color:#FFA500; /* Green color for the button */
+            color: #fff; /* White text color */
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .sidebar button:hover {
+            background-color: #45a049;
+        }
+
+        .content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+
+        .patient-info {
+            background-color: #fff;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .patient-info h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .patient-info ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .patient-info li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Main container that holds sidebar and content -->
+    <div class="container">
+        <!-- Sidebar section for navigation and doctor info -->
+        <div class="sidebar">
+            <h2>Doctor's Page</h2>
+            <p>Welcome, Dr. John Doe</p>
+            <p>Specialization: Orthopedics</p>
+
+            <!-- Button to open the dashboard section -->
+            <button onclick="openDashboard()">Dashboard</button>
+        </div>
+
+        <!-- Content section that includes the dashboard -->
+        <div class="content" id="dashboard">
+            <!-- Heading for the dashboard section -->
+            <h1>Dashboard</h1>
+
+            <!-- Patient Information Section -->
+            <div class="patient-info">
+                <!-- Patient 1 -->
+                <div class="patient-section">
+                    <h2>Patient ID: #123</h2>
+                    <strong>Name:</strong> John Smith
+                    <!-- Additional patient details -->
+                    <ul>
+                        <li><strong>Age:</strong> 35</li>
+                        <li><strong>Address:</strong> 123 Main Street, Cityville</li>
+                        <li><strong>Blood Group:</strong> O+</li>
+                        <li><strong>Phone Number:</strong> (555) 123-4567</li>
+                        <li><strong>Medical History:</strong> Previous fractures in right leg.</li>
+                    </ul>
+                </div>
+
+                <!-- Patient 2 -->
+                <div class="patient-section">
+                    <h2>Patient ID: #124</h2>
+                    <strong>Name:</strong> Jane Doe
+                    <!-- Additional patient details -->
+                    <ul>
+                        <li><strong>Age:</strong> 45</li>
+                        <li><strong>Address:</strong> 456 Oak Avenue, Townsville</li>
+                        <li><strong>Blood Group:</strong> A-</li>
+                        <li><strong>Phone Number:</strong> (555) 987-6543</li>
+                        <li><strong>Medical History:</strong> Allergies to penicillin.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript script to control the visibility of the dashboard -->
+    <script>
+        function openDashboard() {
+            document.getElementById("dashboard").style.display

@@ -1,0 +1,46 @@
+<!-- body_bottom.html -->
+{% block content %}
+    <!-- CSS styling for the body and footer -->
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .footer-box {
+            background-color: #bcb3b3;
+            padding: 20px;
+            margin-top: 20px;
+            margin-top: auto;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .footer-box a {
+            color: #070707;
+            text-decoration: none;
+        }
+
+        .footer-box a:hover {
+            color: #000;
+        }
+    </style>
+
+    <!-- Footer content -->
+    <div class="footer-box">
+        <div>
+            <!-- Hardcoded address and contact information -->
+            <p>Address: 123 Main St, City, State, ZIP</p>
+            <p>Contact: (123) 456-7890</p>
+        </div>
+        <div>
+            <!-- The href can be replaced with url names defined in urls.py -->
+            <p><a href="{% url 'terms_conditions' %}" target="_blank">Terms & Conditions</a></p>
+            <p><a href="{% url 'privacy_policy' %}" target="_blank">Privacy Policy</a></p>
+            <p><a href="{% url 'about_us' %}" target="_blank">About Us</a></p>
+        </div>
+    </div>
+
+{% endblock content %}

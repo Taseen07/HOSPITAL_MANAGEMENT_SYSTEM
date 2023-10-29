@@ -1,0 +1,22 @@
+<!-- doctor_appointment_confirmation.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <div>
+        {% include 'homepage/snippets/search_box.html' %}
+  </div>
+  <div style="display: flex; justify-content: center; align-items: center;
+              height: 100vh; flex-direction: column;">
+    <h1>Appointment Confirmation</h1>
+    <p>Your appointment has been booked successfully!</p>
+    <a href="{% url 'home_screen_view' %}" style="display: inline-block;
+                    margin-top: 20px; padding: 10px 20px; background-color: #007BFF;
+                    color: white; text-decoration: none; border-radius: 5px;">Go Back Home</a>
+  </div>
+  <div>
+        {% include 'homepage/snippets/login_button.html' %}
+  </div>
+  <div>
+       {% include 'homepage/snippets/options.html' %}
+  </div>
+{% endblock %}

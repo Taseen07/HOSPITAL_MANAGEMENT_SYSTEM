@@ -1,0 +1,42 @@
+<!-- login_button.html -->
+{% block content %}
+    <!-- CSS styling for the button container and link -->
+    <style>
+        .button-container {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 10px;
+            display: block;
+            width: 200px;
+            height: 50px;
+            margin: 20px auto;
+            background-color: #bcb3b3;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            float: right;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .link {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+    </style>
+
+    <!-- Button for login/logout -->
+    <button class="button-container">
+        {% if user.is_authenticated %}
+            <!-- If user is authenticated, show logout option -->
+            <a class="link" href="{% url 'logout' %}">Logout</a>
+        {% else %}
+            <!-- If user is not authenticated, show login option -->
+            <a class="link" href="{% url 'login' %}">Login</a>
+        {% endif %}
+    </button>
+{% endblock %}

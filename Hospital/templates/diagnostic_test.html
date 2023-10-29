@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for character set and viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Title of the page -->
+    <title>Available Diagnostic Tests</title>
+
+    <!-- Internal stylesheet for combining HTML and CSS -->
+    <style>
+        /* Resetting default margin and padding for better consistency */
+        body, h1, form {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Basic styling for the container */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Styling for the header */
+        h1 {
+            text-align: center;
+            color: #333; /* Dark text color */
+        }
+
+        /* Styling for the diagnostic test form */
+        .diagnostic-test-form {
+            margin-top: 20px;
+        }
+
+        /* Styling for form labels */
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333; /* Dark text color */
+        }
+
+        /* Styling for form input fields and dropdown */
+        select, input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        /* Styling for the submit button */
+        button {
+            background-color: #007bff; /* Blue color for the button */
+            color: #fff; /* White text color */
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Main container that holds the content -->
+    <div class="container">
+        <!-- Header for Available Diagnostic Tests -->
+        <h1>Available Diagnostic Tests</h1>
+
+        <!-- Diagnostic Test Form Section -->
+        <div class="diagnostic-test-form">
+            <!-- Form for selecting test name, date, and time -->
+            <form action="#" method="post">
+                <!-- Dropdown for selecting test name -->
+                <label for="testName">Test Name:</label>
+                <select id="testName" name="testName">
+                    <option value="bloodTest">Blood Test</option>
+                    <option value="xRay">X-Ray</option>
+                    <option value="mri">MRI</option>
+                    <!-- Add more test options as needed -->
+                </select>
+
+                <!-- Input field for choosing date -->
+                <label for="testDate">Date:</label>
+                <input type="date" id="testDate" name="testDate" required>
+
+                <!-- Input field for choosing time -->
+                <label for="testTime">Time:</label>
+                <input type="time" id="testTime" name="testTime" required>
+
+                <!-- Submit button to confirm the test booking -->
+                <button type="submit">Book Test</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
