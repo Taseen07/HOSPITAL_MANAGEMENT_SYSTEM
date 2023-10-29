@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hospital &mdash; Hospital Management System 1.0.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=8d563738"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Hospital package" href="Hospital.html" />
+    <link rel="prev" title="Welcome to Hospital Management System’s documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Hospital Management System
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Hospital</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Hospital.html">Hospital package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="homepage.html">homepage package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manage.html">manage module</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Hospital Management System</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Hospital</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/modules.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="hospital">
+<h1>Hospital<a class="headerlink" href="#hospital" title="Link to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Hospital.html">Hospital package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Hospital.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Hospital.html#module-Hospital.asgi">Hospital.asgi module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Hospital.html#module-Hospital.settings">Hospital.settings module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Hospital.html#module-Hospital.urls">Hospital.urls module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Hospital.html#module-Hospital.wsgi">Hospital.wsgi module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Hospital.html#module-Hospital">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="homepage.html">homepage package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="homepage.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="homepage.migrations.html">homepage.migrations package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="homepage.migrations.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.migrations.html#module-homepage.migrations.0001_initial">homepage.migrations.0001_initial module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.migrations.html#module-homepage.migrations.0002_timing_doctor_timings">homepage.migrations.0002_timing_doctor_timings module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.migrations.html#module-homepage.migrations.0003_remove_doctor_timings_timing_doctor">homepage.migrations.0003_remove_doctor_timings_timing_doctor module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.migrations.html#module-homepage.migrations.0004_remove_appointment_time_appointment_timing">homepage.migrations.0004_remove_appointment_time_appointment_timing module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.migrations.html#module-homepage.migrations">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="homepage.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="homepage.html#module-homepage.admin">homepage.admin module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="homepage.html#homepage.admin.AppointmentAdmin"><code class="docutils literal notranslate"><span class="pre">AppointmentAdmin</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.admin.AppointmentAdmin.media"><code class="docutils literal notranslate"><span class="pre">AppointmentAdmin.media</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="homepage.html#homepage.admin.DoctorAdmin"><code class="docutils literal notranslate"><span class="pre">DoctorAdmin</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.admin.DoctorAdmin.media"><code class="docutils literal notranslate"><span class="pre">DoctorAdmin.media</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="homepage.html#homepage.admin.PatientAdmin"><code class="docutils literal notranslate"><span class="pre">PatientAdmin</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.admin.PatientAdmin.media"><code class="docutils literal notranslate"><span class="pre">PatientAdmin.media</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="homepage.html#module-homepage.apps">homepage.apps module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="homepage.html#homepage.apps.HomepageConfig"><code class="docutils literal notranslate"><span class="pre">HomepageConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.apps.HomepageConfig.default_auto_field"><code class="docutils literal notranslate"><span class="pre">HomepageConfig.default_auto_field</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.apps.HomepageConfig.name"><code class="docutils literal notranslate"><span class="pre">HomepageConfig.name</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="homepage.html#module-homepage.forms">homepage.forms module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="homepage.html#homepage.forms.AppointmentForm"><code class="docutils literal notranslate"><span class="pre">AppointmentForm</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.forms.AppointmentForm.Meta"><code class="docutils literal notranslate"><span class="pre">AppointmentForm.Meta</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.forms.AppointmentForm.base_fields"><code class="docutils literal notranslate"><span class="pre">AppointmentForm.base_fields</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.forms.AppointmentForm.declared_fields"><code class="docutils literal notranslate"><span class="pre">AppointmentForm.declared_fields</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.forms.AppointmentForm.media"><code class="docutils literal notranslate"><span class="pre">AppointmentForm.media</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="homepage.html#homepage.forms.DoctorForm"><code class="docutils literal notranslate"><span class="pre">DoctorForm</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.forms.DoctorForm.Meta"><code class="docutils literal notranslate"><span class="pre">DoctorForm.Meta</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.forms.DoctorForm.base_fields"><code class="docutils literal notranslate"><span class="pre">DoctorForm.base_fields</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.forms.DoctorForm.declared_fields"><code class="docutils literal notranslate"><span class="pre">DoctorForm.declared_fields</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.forms.DoctorForm.media"><code class="docutils literal notranslate"><span class="pre">DoctorForm.media</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="homepage.html#homepage.forms.DoctorSearchForm"><code class="docutils literal notranslate"><span class="pre">DoctorSearchForm</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.forms.DoctorSearchForm.base_fields"><code class="docutils literal notranslate"><span class="pre">DoctorSearchForm.base_fields</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.forms.DoctorSearchForm.declared_fields"><code class="docutils literal notranslate"><span class="pre">DoctorSearchForm.declared_fields</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.forms.DoctorSearchForm.media"><code class="docutils literal notranslate"><span class="pre">DoctorSearchForm.media</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="homepage.html#homepage.forms.PatientForm"><code class="docutils literal notranslate"><span class="pre">PatientForm</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.forms.PatientForm.Meta"><code class="docutils literal notranslate"><span class="pre">PatientForm.Meta</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.forms.PatientForm.base_fields"><code class="docutils literal notranslate"><span class="pre">PatientForm.base_fields</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.forms.PatientForm.declared_fields"><code class="docutils literal notranslate"><span class="pre">PatientForm.declared_fields</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.forms.PatientForm.media"><code class="docutils literal notranslate"><span class="pre">PatientForm.media</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="homepage.html#homepage.forms.TimingForm"><code class="docutils literal notranslate"><span class="pre">TimingForm</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.forms.TimingForm.Meta"><code class="docutils literal notranslate"><span class="pre">TimingForm.Meta</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.forms.TimingForm.base_fields"><code class="docutils literal notranslate"><span class="pre">TimingForm.base_fields</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.forms.TimingForm.declared_fields"><code class="docutils literal notranslate"><span class="pre">TimingForm.declared_fields</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.forms.TimingForm.media"><code class="docutils literal notranslate"><span class="pre">TimingForm.media</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="homepage.html#homepage.forms.UserRegistrationForm"><code class="docutils literal notranslate"><span class="pre">UserRegistrationForm</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.forms.UserRegistrationForm.Meta"><code class="docutils literal notranslate"><span class="pre">UserRegistrationForm.Meta</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.forms.UserRegistrationForm.base_fields"><code class="docutils literal notranslate"><span class="pre">UserRegistrationForm.base_fields</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.forms.UserRegistrationForm.declared_fields"><code class="docutils literal notranslate"><span class="pre">UserRegistrationForm.declared_fields</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.forms.UserRegistrationForm.media"><code class="docutils literal notranslate"><span class="pre">UserRegistrationForm.media</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="homepage.html#module-homepage.models">homepage.models module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="homepage.html#homepage.models.Appointment"><code class="docutils literal notranslate"><span class="pre">Appointment</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.models.Appointment.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Appointment.DoesNotExist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.models.Appointment.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Appointment.MultipleObjectsReturned</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.models.Appointment.date"><code class="docutils literal notranslate"><span class="pre">Appointment.date</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.models.Appointment.doctor"><code class="docutils literal notranslate"><span class="pre">Appointment.doctor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.models.Appointment.doctor_id"><code class="docutils literal notranslate"><span class="pre">Appointment.doctor_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.models.Appointment.get_next_by_date"><code class="docutils literal notranslate"><span class="pre">Appointment.get_next_by_date()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.models.Appointment.get_previous_by_date"><code class="docutils literal notranslate"><span class="pre">Appointment.get_previous_by_date()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.models.Appointment.id"><code class="docutils literal notranslate"><span class="pre">Appointment.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.models.Appointment.objects"><code class="docutils literal notranslate"><span class="pre">Appointment.objects</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.models.Appointment.patient"><code class="docutils literal notranslate"><span class="pre">Appointment.patient</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.models.Appointment.patient_id"><code class="docutils literal notranslate"><span class="pre">Appointment.patient_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.models.Appointment.timing"><code class="docutils literal notranslate"><span class="pre">Appointment.timing</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.models.Appointment.timing_id"><code class="docutils literal notranslate"><span class="pre">Appointment.timing_id</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="homepage.html#homepage.models.Doctor"><code class="docutils literal notranslate"><span class="pre">Doctor</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.models.Doctor.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Doctor.DoesNotExist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.models.Doctor.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Doctor.MultipleObjectsReturned</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.models.Doctor.appointment_set"><code class="docutils literal notranslate"><span class="pre">Doctor.appointment_set</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.models.Doctor.department"><code class="docutils literal notranslate"><span class="pre">Doctor.department</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.models.Doctor.description"><code class="docutils literal notranslate"><span class="pre">Doctor.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.models.Doctor.id"><code class="docutils literal notranslate"><span class="pre">Doctor.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.models.Doctor.nid"><code class="docutils literal notranslate"><span class="pre">Doctor.nid</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.models.Doctor.objects"><code class="docutils literal notranslate"><span class="pre">Doctor.objects</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.models.Doctor.phone_number"><code class="docutils literal notranslate"><span class="pre">Doctor.phone_number</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.models.Doctor.photo"><code class="docutils literal notranslate"><span class="pre">Doctor.photo</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.models.Doctor.timings"><code class="docutils literal notranslate"><span class="pre">Doctor.timings</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.models.Doctor.user"><code class="docutils literal notranslate"><span class="pre">Doctor.user</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.models.Doctor.user_id"><code class="docutils literal notranslate"><span class="pre">Doctor.user_id</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="homepage.html#homepage.models.Patient"><code class="docutils literal notranslate"><span class="pre">Patient</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.models.Patient.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Patient.DoesNotExist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.models.Patient.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Patient.MultipleObjectsReturned</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.models.Patient.age"><code class="docutils literal notranslate"><span class="pre">Patient.age</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.models.Patient.appointment_set"><code class="docutils literal notranslate"><span class="pre">Patient.appointment_set</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.models.Patient.blood_group"><code class="docutils literal notranslate"><span class="pre">Patient.blood_group</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.models.Patient.id"><code class="docutils literal notranslate"><span class="pre">Patient.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.models.Patient.nid"><code class="docutils literal notranslate"><span class="pre">Patient.nid</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.models.Patient.objects"><code class="docutils literal notranslate"><span class="pre">Patient.objects</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.models.Patient.phone_number"><code class="docutils literal notranslate"><span class="pre">Patient.phone_number</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.models.Patient.photo"><code class="docutils literal notranslate"><span class="pre">Patient.photo</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.models.Patient.user"><code class="docutils literal notranslate"><span class="pre">Patient.user</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.models.Patient.user_id"><code class="docutils literal notranslate"><span class="pre">Patient.user_id</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="homepage.html#homepage.models.Timing"><code class="docutils literal notranslate"><span class="pre">Timing</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.models.Timing.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Timing.DoesNotExist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.models.Timing.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Timing.MultipleObjectsReturned</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.models.Timing.appointment_set"><code class="docutils literal notranslate"><span class="pre">Timing.appointment_set</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.models.Timing.day"><code class="docutils literal notranslate"><span class="pre">Timing.day</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.models.Timing.doctor"><code class="docutils literal notranslate"><span class="pre">Timing.doctor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.models.Timing.doctor_id"><code class="docutils literal notranslate"><span class="pre">Timing.doctor_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.models.Timing.id"><code class="docutils literal notranslate"><span class="pre">Timing.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.models.Timing.objects"><code class="docutils literal notranslate"><span class="pre">Timing.objects</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.models.Timing.time_period"><code class="docutils literal notranslate"><span class="pre">Timing.time_period</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="homepage.html#module-homepage.tests">homepage.tests module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="homepage.html#homepage.tests.AppointmentBookingTest"><code class="docutils literal notranslate"><span class="pre">AppointmentBookingTest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.tests.AppointmentBookingTest.setUp"><code class="docutils literal notranslate"><span class="pre">AppointmentBookingTest.setUp()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.tests.AppointmentBookingTest.test_book_doctor_appointment_view"><code class="docutils literal notranslate"><span class="pre">AppointmentBookingTest.test_book_doctor_appointment_view()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="homepage.html#homepage.tests.DoctorModelTest"><code class="docutils literal notranslate"><span class="pre">DoctorModelTest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.tests.DoctorModelTest.setUp"><code class="docutils literal notranslate"><span class="pre">DoctorModelTest.setUp()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.tests.DoctorModelTest.test_doctor_creation"><code class="docutils literal notranslate"><span class="pre">DoctorModelTest.test_doctor_creation()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="homepage.html#homepage.tests.PatientModelTest"><code class="docutils literal notranslate"><span class="pre">PatientModelTest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.tests.PatientModelTest.setUp"><code class="docutils literal notranslate"><span class="pre">PatientModelTest.setUp()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.tests.PatientModelTest.test_patient_creation"><code class="docutils literal notranslate"><span class="pre">PatientModelTest.test_patient_creation()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="homepage.html#homepage.tests.RegisterDoctorViewTest"><code class="docutils literal notranslate"><span class="pre">RegisterDoctorViewTest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.tests.RegisterDoctorViewTest.setUp"><code class="docutils literal notranslate"><span class="pre">RegisterDoctorViewTest.setUp()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.tests.RegisterDoctorViewTest.test_register_doctor_view"><code class="docutils literal notranslate"><span class="pre">RegisterDoctorViewTest.test_register_doctor_view()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="homepage.html#homepage.tests.RegisterPatientViewTest"><code class="docutils literal notranslate"><span class="pre">RegisterPatientViewTest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.tests.RegisterPatientViewTest.setUp"><code class="docutils literal notranslate"><span class="pre">RegisterPatientViewTest.setUp()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.tests.RegisterPatientViewTest.test_register_patient_view"><code class="docutils literal notranslate"><span class="pre">RegisterPatientViewTest.test_register_patient_view()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="homepage.html#homepage.tests.SearchViewTest"><code class="docutils literal notranslate"><span class="pre">SearchViewTest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.tests.SearchViewTest.setUp"><code class="docutils literal notranslate"><span class="pre">SearchViewTest.setUp()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.html#homepage.tests.SearchViewTest.test_search_view"><code class="docutils literal notranslate"><span class="pre">SearchViewTest.test_search_view()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="homepage.html#module-homepage.views">homepage.views module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="homepage.html#homepage.views.about_us"><code class="docutils literal notranslate"><span class="pre">about_us()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="homepage.html#homepage.views.bed_reservation"><code class="docutils literal notranslate"><span class="pre">bed_reservation()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="homepage.html#homepage.views.blood_bank"><code class="docutils literal notranslate"><span class="pre">blood_bank()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="homepage.html#homepage.views.book_doctor_appointment"><code class="docutils literal notranslate"><span class="pre">book_doctor_appointment()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="homepage.html#homepage.views.dashboard"><code class="docutils literal notranslate"><span class="pre">dashboard()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="homepage.html#homepage.views.doctor_appointment_confirmation"><code class="docutils literal notranslate"><span class="pre">doctor_appointment_confirmation()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="homepage.html#homepage.views.doctor_detail"><code class="docutils literal notranslate"><span class="pre">doctor_detail()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="homepage.html#homepage.views.doctors"><code class="docutils literal notranslate"><span class="pre">doctors()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="homepage.html#homepage.views.emergency_services"><code class="docutils literal notranslate"><span class="pre">emergency_services()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="homepage.html#homepage.views.home_screen_view"><code class="docutils literal notranslate"><span class="pre">home_screen_view()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="homepage.html#homepage.views.login_view"><code class="docutils literal notranslate"><span class="pre">login_view()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="homepage.html#homepage.views.logout_view"><code class="docutils literal notranslate"><span class="pre">logout_view()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="homepage.html#homepage.views.privacy_policy"><code class="docutils literal notranslate"><span class="pre">privacy_policy()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="homepage.html#homepage.views.register_doctor"><code class="docutils literal notranslate"><span class="pre">register_doctor()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="homepage.html#homepage.views.register_patient"><code class="docutils literal notranslate"><span class="pre">register_patient()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="homepage.html#homepage.views.search"><code class="docutils literal notranslate"><span class="pre">search()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="homepage.html#homepage.views.services"><code class="docutils literal notranslate"><span class="pre">services()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="homepage.html#homepage.views.staff"><code class="docutils literal notranslate"><span class="pre">staff()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="homepage.html#homepage.views.terms_conditions"><code class="docutils literal notranslate"><span class="pre">terms_conditions()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="homepage.html#module-homepage">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="manage.html">manage module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="manage.html#manage.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to Hospital Management System’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Hospital.html" class="btn btn-neutral float-right" title="Hospital package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Abdul Mueed.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
