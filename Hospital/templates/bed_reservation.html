@@ -1,0 +1,68 @@
+<!-- other_services.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title>Bed Reservation</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            color: #000; /* Black color for headline text */
+            font-weight: bold; /* Bold font for the headline */
+            font-style: italic; /* Italicized text */
+            margin-top: 50px; /* Margin to position the title */
+        }
+        p {
+            font-weight: bold; /* Make the text bold */
+            font-style: italic; /* Italicized text */
+            color: #000; /* Black color */
+        }
+        button {
+            background-color: #ffcba4; /* Peach color background for buttons */
+            color: #000; /* Black text color */
+            border: none;
+            padding: 12px 24px;
+            font-weight: bold; /* Make button text bold */
+            font-style: italic; /* Italicized text */
+            cursor: pointer; /* Change cursor to pointer on hover */
+            border-radius: 5px; /* Rounded corners for buttons */
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin: 0 10px; /* Add margin between the buttons */
+        }
+        button:hover {
+            transform: scale(1.1);
+            box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <h1>Bed Reservation</h1>
+    <p>Choose the type of services required: 😊</p>
+
+    {% if request.user.is_authenticated %}
+        <a href="{% url 'extensive_bed_search' %}"><button>ICU/CCU/HDU</button></a>
+    {% else %}
+        <a href="{% url 'login' %}"><button>ICU/CCU/HDU</button></a>
+    {% endif %}
+
+    {% if request.user.is_authenticated %}
+        <a href="{% url 'general_bed_search' %}"><button>GENERAL</button></a>
+    {% else %}
+        <a href="{% url 'login' %}"><button>GENERAL</button></a>
+    {% endif %}
+    <!-- Include other content snippets here -->
+    <div>
+        {% include 'homepage/snippets/options.html' %}
+    </div>
+
+    <div>
+        {% include 'homepage/snippets/login_button.html' %}
+    </div>
+</body>
+{% endblock %}

@@ -1,0 +1,115 @@
+<!-- other_services.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<head>
+    <title>Available Beds for Booking - {{ category }}</title>
+    <style>
+        /* Styling for the HTML elements */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        /* Title styling */
+        .title {
+            font-weight: bold;
+            font-style: italic;
+            color: #000;
+            margin-top: 20px;
+        }
+        /* Container for the table */
+        .table-container {
+            width: 50%;
+            margin: 20px auto;
+            max-height: 300px;
+            overflow-y: auto;
+            display: flex;
+            justify-content: center;
+        }
+        /* Table styling */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f5f5dc;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #e0e0e0;
+            cursor: pointer;
+        }
+        /* End text style */
+        .end-text {
+            font-weight: bold;
+            font-style: italic;
+        }
+        /* Button styling */
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: peachpuff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        /* Button hover effect */
+        .button:hover {
+            background-color: coral;
+        }
+    </style>
+</head>
+<body>
+    <!-- Title of the section -->
+    <h1 class="title">Available Beds for Booking - {{ category }}</h1>
+    <div class="table-container">
+        <table>
+            <thead>
+                <!-- Table headers -->
+                <tr>
+                    <th>Category</th>
+                    <th>Position</th>
+                    <th>Rent per Day (BDT)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Looping through available beds -->
+                {% for bed in available_beds|dictsort:"position" %}
+                    <tr>
+                        <td>{{ bed.category }}</td>
+                        <td>{{ bed.position }}</td>
+                        <td>BDT {{ bed.rent_per_day|floatformat:2 }}</td>
+                    </tr>
+                {% empty %}
+                    <!-- Display message if no beds are available -->
+                    <tr>
+                        <td colspan="3">No beds available for {{ category }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <!-- Text at the end of the section -->
+    <p class="end-text">Choose an option suitable for your need 😊</p>
+    <!-- Anchor tag for the button with link to extensive_bed_search.html -->
+    <a href="general_bed_search.html" class="button">Proceed Booking</a>
+    <!-- Including other content snippets -->
+    <div>
+        {% include 'homepage/snippets/options.html' %}
+    </div>
+
+    <div>
+        {% include 'homepage/snippets/login_button.html' %}
+    </div>
+</body>
+{% endblock %}
