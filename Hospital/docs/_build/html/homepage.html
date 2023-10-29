@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>homepage package &mdash; Hospital Management System 1.0.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=8d563738"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Hospital Management System
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">homepage package</a><ul>
+<li><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-homepage.admin">homepage.admin module</a><ul>
+<li><a class="reference internal" href="#homepage.admin.AppointmentAdmin"><code class="docutils literal notranslate"><span class="pre">AppointmentAdmin</span></code></a><ul>
+<li><a class="reference internal" href="#homepage.admin.AppointmentAdmin.media"><code class="docutils literal notranslate"><span class="pre">AppointmentAdmin.media</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#homepage.admin.DoctorAdmin"><code class="docutils literal notranslate"><span class="pre">DoctorAdmin</span></code></a><ul>
+<li><a class="reference internal" href="#homepage.admin.DoctorAdmin.media"><code class="docutils literal notranslate"><span class="pre">DoctorAdmin.media</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#homepage.admin.PatientAdmin"><code class="docutils literal notranslate"><span class="pre">PatientAdmin</span></code></a><ul>
+<li><a class="reference internal" href="#homepage.admin.PatientAdmin.media"><code class="docutils literal notranslate"><span class="pre">PatientAdmin.media</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-homepage.apps">homepage.apps module</a><ul>
+<li><a class="reference internal" href="#homepage.apps.HomepageConfig"><code class="docutils literal notranslate"><span class="pre">HomepageConfig</span></code></a><ul>
+<li><a class="reference internal" href="#homepage.apps.HomepageConfig.default_auto_field"><code class="docutils literal notranslate"><span class="pre">HomepageConfig.default_auto_field</span></code></a></li>
+<li><a class="reference internal" href="#homepage.apps.HomepageConfig.name"><code class="docutils literal notranslate"><span class="pre">HomepageConfig.name</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-homepage.forms">homepage.forms module</a><ul>
+<li><a class="reference internal" href="#homepage.forms.AppointmentForm"><code class="docutils literal notranslate"><span class="pre">AppointmentForm</span></code></a><ul>
+<li><a class="reference internal" href="#homepage.forms.AppointmentForm.Meta"><code class="docutils literal notranslate"><span class="pre">AppointmentForm.Meta</span></code></a><ul>
+<li><a class="reference internal" href="#homepage.forms.AppointmentForm.Meta.fields"><code class="docutils literal notranslate"><span class="pre">AppointmentForm.Meta.fields</span></code></a></li>
+<li><a class="reference internal" href="#homepage.forms.AppointmentForm.Meta.model"><code class="docutils literal notranslate"><span class="pre">AppointmentForm.Meta.model</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#homepage.forms.AppointmentForm.base_fields"><code class="docutils literal notranslate"><span class="pre">AppointmentForm.base_fields</span></code></a></li>
+<li><a class="reference internal" href="#homepage.forms.AppointmentForm.declared_fields"><code class="docutils literal notranslate"><span class="pre">AppointmentForm.declared_fields</span></code></a></li>
+<li><a class="reference internal" href="#homepage.forms.AppointmentForm.media"><code class="docutils literal notranslate"><span class="pre">AppointmentForm.media</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#homepage.forms.DoctorForm"><code class="docutils literal notranslate"><span class="pre">DoctorForm</span></code></a><ul>
+<li><a class="reference internal" href="#homepage.forms.DoctorForm.Meta"><code class="docutils literal notranslate"><span class="pre">DoctorForm.Meta</span></code></a><ul>
+<li><a class="reference internal" href="#homepage.forms.DoctorForm.Meta.fields"><code class="docutils literal notranslate"><span class="pre">DoctorForm.Meta.fields</span></code></a></li>
+<li><a class="reference internal" href="#homepage.forms.DoctorForm.Meta.model"><code class="docutils literal notranslate"><span class="pre">DoctorForm.Meta.model</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#homepage.forms.DoctorForm.base_fields"><code class="docutils literal notranslate"><span class="pre">DoctorForm.base_fields</span></code></a></li>
+<li><a class="reference internal" href="#homepage.forms.DoctorForm.declared_fields"><code class="docutils literal notranslate"><span class="pre">DoctorForm.declared_fields</span></code></a></li>
+<li><a class="reference internal" href="#homepage.forms.DoctorForm.media"><code class="docutils literal notranslate"><span class="pre">DoctorForm.media</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#homepage.forms.DoctorSearchForm"><code class="docutils literal notranslate"><span class="pre">DoctorSearchForm</span></code></a><ul>
+<li><a class="reference internal" href="#homepage.forms.DoctorSearchForm.base_fields"><code class="docutils literal notranslate"><span class="pre">DoctorSearchForm.base_fields</span></code></a></li>
+<li><a class="reference internal" href="#homepage.forms.DoctorSearchForm.declared_fields"><code class="docutils literal notranslate"><span class="pre">DoctorSearchForm.declared_fields</span></code></a></li>
+<li><a class="reference internal" href="#homepage.forms.DoctorSearchForm.media"><code class="docutils literal notranslate"><span class="pre">DoctorSearchForm.media</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#homepage.forms.PatientForm"><code class="docutils literal notranslate"><span class="pre">PatientForm</span></code></a><ul>
+<li><a class="reference internal" href="#homepage.forms.PatientForm.Meta"><code class="docutils literal notranslate"><span class="pre">PatientForm.Meta</span></code></a><ul>
+<li><a class="reference internal" href="#homepage.forms.PatientForm.Meta.fields"><code class="docutils literal notranslate"><span class="pre">PatientForm.Meta.fields</span></code></a></li>
+<li><a class="reference internal" href="#homepage.forms.PatientForm.Meta.model"><code class="docutils literal notranslate"><span class="pre">PatientForm.Meta.model</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#homepage.forms.PatientForm.base_fields"><code class="docutils literal notranslate"><span class="pre">PatientForm.base_fields</span></code></a></li>
+<li><a class="reference internal" href="#homepage.forms.PatientForm.declared_fields"><code class="docutils literal notranslate"><span class="pre">PatientForm.declared_fields</span></code></a></li>
+<li><a class="reference internal" href="#homepage.forms.PatientForm.media"><code class="docutils literal notranslate"><span class="pre">PatientForm.media</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#homepage.forms.TimingForm"><code class="docutils literal notranslate"><span class="pre">TimingForm</span></code></a><ul>
+<li><a class="reference internal" href="#homepage.forms.TimingForm.Meta"><code class="docutils literal notranslate"><span class="pre">TimingForm.Meta</span></code></a><ul>
+<li><a class="reference internal" href="#homepage.forms.TimingForm.Meta.fields"><code class="docutils literal notranslate"><span class="pre">TimingForm.Meta.fields</span></code></a></li>
+<li><a class="reference internal" href="#homepage.forms.TimingForm.Meta.model"><code class="docutils literal notranslate"><span class="pre">TimingForm.Meta.model</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#homepage.forms.TimingForm.base_fields"><code class="docutils literal notranslate"><span class="pre">TimingForm.base_fields</span></code></a></li>
+<li><a class="reference internal" href="#homepage.forms.TimingForm.declared_fields"><code class="docutils literal notranslate"><span class="pre">TimingForm.declared_fields</span></code></a></li>
+<li><a class="reference internal" href="#homepage.forms.TimingForm.media"><code class="docutils literal notranslate"><span class="pre">TimingForm.media</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#homepage.forms.UserRegistrationForm"><code class="docutils literal notranslate"><span class="pre">UserRegistrationForm</span></code></a><ul>
+<li><a class="reference internal" href="#homepage.forms.UserRegistrationForm.Meta"><code class="docutils literal notranslate"><span class="pre">UserRegistrationForm.Meta</span></code></a><ul>
+<li><a class="reference internal" href="#homepage.forms.UserRegistrationForm.Meta.fields"><code class="docutils literal notranslate"><span class="pre">UserRegistrationForm.Meta.fields</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#homepage.forms.UserRegistrationForm.base_fields"><code class="docutils literal notranslate"><span class="pre">UserRegistrationForm.base_fields</span></code></a></li>
+<li><a class="reference internal" href="#homepage.forms.UserRegistrationForm.declared_fields"><code class="docutils literal notranslate"><span class="pre">UserRegistrationForm.declared_fields</span></code></a></li>
+<li><a class="reference internal" href="#homepage.forms.UserRegistrationForm.media"><code class="docutils literal notranslate"><span class="pre">UserRegistrationForm.media</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-homepage.models">homepage.models module</a><ul>
+<li><a class="reference internal" href="#homepage.models.Appointment"><code class="docutils literal notranslate"><span class="pre">Appointment</span></code></a><ul>
+<li><a class="reference internal" href="#homepage.models.Appointment.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Appointment.DoesNotExist</span></code></a></li>
+<li><a class="reference internal" href="#homepage.models.Appointment.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Appointment.MultipleObjectsReturned</span></code></a></li>
+<li><a class="reference internal" href="#homepage.models.Appointment.date"><code class="docutils literal notranslate"><span class="pre">Appointment.date</span></code></a></li>
+<li><a class="reference internal" href="#homepage.models.Appointment.doctor"><code class="docutils literal notranslate"><span class="pre">Appointment.doctor</span></code></a></li>
+<li><a class="reference internal" href="#homepage.models.Appointment.doctor_id"><code class="docutils literal notranslate"><span class="pre">Appointment.doctor_id</span></code></a></li>
+<li><a class="reference internal" href="#homepage.models.Appointment.get_next_by_date"><code class="docutils literal notranslate"><span class="pre">Appointment.get_next_by_date()</span></code></a></li>
+<li><a class="reference internal" href="#homepage.models.Appointment.get_previous_by_date"><code class="docutils literal notranslate"><span class="pre">Appointment.get_previous_by_date()</span></code></a></li>
+<li><a class="reference internal" href="#homepage.models.Appointment.id"><code class="docutils literal notranslate"><span class="pre">Appointment.id</span></code></a></li>
+<li><a class="reference internal" href="#homepage.models.Appointment.objects"><code class="docutils literal notranslate"><span class="pre">Appointment.objects</span></code></a></li>
+<li><a class="reference internal" href="#homepage.models.Appointment.patient"><code class="docutils literal notranslate"><span class="pre">Appointment.patient</span></code></a></li>
+<li><a class="reference internal" href="#homepage.models.Appointment.patient_id"><code class="docutils literal notranslate"><span class="pre">Appointment.patient_id</span></code></a></li>
+<li><a class="reference internal" href="#homepage.models.Appointment.timing"><code class="docutils literal notranslate"><span class="pre">Appointment.timing</span></code></a></li>
+<li><a class="reference internal" href="#homepage.models.Appointment.timing_id"><code class="docutils literal notranslate"><span class="pre">Appointment.timing_id</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#homepage.models.Doctor"><code class="docutils literal notranslate"><span class="pre">Doctor</span></code></a><ul>
+<li><a class="reference internal" href="#homepage.models.Doctor.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Doctor.DoesNotExist</span></code></a></li>
+<li><a class="reference internal" href="#homepage.models.Doctor.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Doctor.MultipleObjectsReturned</span></code></a></li>
+<li><a class="reference internal" href="#homepage.models.Doctor.appointment_set"><code class="docutils literal notranslate"><span class="pre">Doctor.appointment_set</span></code></a></li>
+<li><a class="reference internal" href="#homepage.models.Doctor.department"><code class="docutils literal notranslate"><span class="pre">Doctor.department</span></code></a></li>
+<li><a class="reference internal" href="#homepage.models.Doctor.description"><code class="docutils literal notranslate"><span class="pre">Doctor.description</span></code></a></li>
+<li><a class="reference internal" href="#homepage.models.Doctor.id"><code class="docutils literal notranslate"><span class="pre">Doctor.id</span></code></a></li>
+<li><a class="reference internal" href="#homepage.models.Doctor.nid"><code class="docutils literal notranslate"><span class="pre">Doctor.nid</span></code></a></li>
+<li><a class="reference internal" href="#homepage.models.Doctor.objects"><code class="docutils literal notranslate"><span class="pre">Doctor.objects</span></code></a></li>
+<li><a class="reference internal" href="#homepage.models.Doctor.phone_number"><code class="docutils literal notranslate"><span class="pre">Doctor.phone_number</span></code></a></li>
+<li><a class="reference internal" href="#homepage.models.Doctor.photo"><code class="docutils literal notranslate"><span class="pre">Doctor.photo</span></code></a></li>
+<li><a class="reference internal" href="#homepage.models.Doctor.timings"><code class="docutils literal notranslate"><span class="pre">Doctor.timings</span></code></a></li>
+<li><a class="reference internal" href="#homepage.models.Doctor.user"><code class="docutils literal notranslate"><span class="pre">Doctor.user</span></code></a></li>
+<li><a class="reference internal" href="#homepage.models.Doctor.user_id"><code class="docutils literal notranslate"><span class="pre">Doctor.user_id</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#homepage.models.Patient"><code class="docutils literal notranslate"><span class="pre">Patient</span></code></a><ul>
+<li><a class="reference internal" href="#homepage.models.Patient.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Patient.DoesNotExist</span></code></a></li>
+<li><a class="reference internal" href="#homepage.models.Patient.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Patient.MultipleObjectsReturned</span></code></a></li>
+<li><a class="reference internal" href="#homepage.models.Patient.age"><code class="docutils literal notranslate"><span class="pre">Patient.age</span></code></a></li>
+<li><a class="reference internal" href="#homepage.models.Patient.appointment_set"><code class="docutils literal notranslate"><span class="pre">Patient.appointment_set</span></code></a></li>
+<li><a class="reference internal" href="#homepage.models.Patient.blood_group"><code class="docutils literal notranslate"><span class="pre">Patient.blood_group</span></code></a></li>
+<li><a class="reference internal" href="#homepage.models.Patient.id"><code class="docutils literal notranslate"><span class="pre">Patient.id</span></code></a></li>
+<li><a class="reference internal" href="#homepage.models.Patient.nid"><code class="docutils literal notranslate"><span class="pre">Patient.nid</span></code></a></li>
+<li><a class="reference internal" href="#homepage.models.Patient.objects"><code class="docutils literal notranslate"><span class="pre">Patient.objects</span></code></a></li>
+<li><a class="reference internal" href="#homepage.models.Patient.phone_number"><code class="docutils literal notranslate"><span class="pre">Patient.phone_number</span></code></a></li>
+<li><a class="reference internal" href="#homepage.models.Patient.photo"><code class="docutils literal notranslate"><span class="pre">Patient.photo</span></code></a></li>
+<li><a class="reference internal" href="#homepage.models.Patient.user"><code class="docutils literal notranslate"><span class="pre">Patient.user</span></code></a></li>
+<li><a class="reference internal" href="#homepage.models.Patient.user_id"><code class="docutils literal notranslate"><span class="pre">Patient.user_id</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#homepage.models.Timing"><code class="docutils literal notranslate"><span class="pre">Timing</span></code></a><ul>
+<li><a class="reference internal" href="#homepage.models.Timing.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Timing.DoesNotExist</span></code></a></li>
+<li><a class="reference internal" href="#homepage.models.Timing.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Timing.MultipleObjectsReturned</span></code></a></li>
+<li><a class="reference internal" href="#homepage.models.Timing.appointment_set"><code class="docutils literal notranslate"><span class="pre">Timing.appointment_set</span></code></a></li>
+<li><a class="reference internal" href="#homepage.models.Timing.day"><code class="docutils literal notranslate"><span class="pre">Timing.day</span></code></a></li>
+<li><a class="reference internal" href="#homepage.models.Timing.doctor"><code class="docutils literal notranslate"><span class="pre">Timing.doctor</span></code></a></li>
+<li><a class="reference internal" href="#homepage.models.Timing.doctor_id"><code class="docutils literal notranslate"><span class="pre">Timing.doctor_id</span></code></a></li>
+<li><a class="reference internal" href="#homepage.models.Timing.id"><code class="docutils literal notranslate"><span class="pre">Timing.id</span></code></a></li>
+<li><a class="reference internal" href="#homepage.models.Timing.objects"><code class="docutils literal notranslate"><span class="pre">Timing.objects</span></code></a></li>
+<li><a class="reference internal" href="#homepage.models.Timing.time_period"><code class="docutils literal notranslate"><span class="pre">Timing.time_period</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-homepage.tests">homepage.tests module</a></li>
+<li><a class="reference internal" href="#module-homepage.views">homepage.views module</a><ul>
+<li><a class="reference internal" href="#homepage.views.about_us"><code class="docutils literal notranslate"><span class="pre">about_us()</span></code></a></li>
+<li><a class="reference internal" href="#homepage.views.bed_reservation"><code class="docutils literal notranslate"><span class="pre">bed_reservation()</span></code></a></li>
+<li><a class="reference internal" href="#homepage.views.blood_bank"><code class="docutils literal notranslate"><span class="pre">blood_bank()</span></code></a></li>
+<li><a class="reference internal" href="#homepage.views.book_doctor_appointment"><code class="docutils literal notranslate"><span class="pre">book_doctor_appointment()</span></code></a></li>
+<li><a class="reference internal" href="#homepage.views.dashboard"><code class="docutils literal notranslate"><span class="pre">dashboard()</span></code></a></li>
+<li><a class="reference internal" href="#homepage.views.doctor_appointment_confirmation"><code class="docutils literal notranslate"><span class="pre">doctor_appointment_confirmation()</span></code></a></li>
+<li><a class="reference internal" href="#homepage.views.doctor_detail"><code class="docutils literal notranslate"><span class="pre">doctor_detail()</span></code></a></li>
+<li><a class="reference internal" href="#homepage.views.doctors"><code class="docutils literal notranslate"><span class="pre">doctors()</span></code></a></li>
+<li><a class="reference internal" href="#homepage.views.emergency_services"><code class="docutils literal notranslate"><span class="pre">emergency_services()</span></code></a></li>
+<li><a class="reference internal" href="#homepage.views.home_screen_view"><code class="docutils literal notranslate"><span class="pre">home_screen_view()</span></code></a></li>
+<li><a class="reference internal" href="#homepage.views.login_view"><code class="docutils literal notranslate"><span class="pre">login_view()</span></code></a></li>
+<li><a class="reference internal" href="#homepage.views.logout_view"><code class="docutils literal notranslate"><span class="pre">logout_view()</span></code></a></li>
+<li><a class="reference internal" href="#homepage.views.privacy_policy"><code class="docutils literal notranslate"><span class="pre">privacy_policy()</span></code></a></li>
+<li><a class="reference internal" href="#homepage.views.register_doctor"><code class="docutils literal notranslate"><span class="pre">register_doctor()</span></code></a></li>
+<li><a class="reference internal" href="#homepage.views.register_patient"><code class="docutils literal notranslate"><span class="pre">register_patient()</span></code></a></li>
+<li><a class="reference internal" href="#homepage.views.search"><code class="docutils literal notranslate"><span class="pre">search()</span></code></a></li>
+<li><a class="reference internal" href="#homepage.views.services"><code class="docutils literal notranslate"><span class="pre">services()</span></code></a></li>
+<li><a class="reference internal" href="#homepage.views.staff"><code class="docutils literal notranslate"><span class="pre">staff()</span></code></a></li>
+<li><a class="reference internal" href="#homepage.views.terms_conditions"><code class="docutils literal notranslate"><span class="pre">terms_conditions()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-homepage">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Hospital Management System</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">homepage package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/homepage.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="homepage-package">
+<h1>homepage package<a class="headerlink" href="#homepage-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="homepage.migrations.html">homepage.migrations package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="homepage.migrations.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="homepage.migrations.html#module-homepage.migrations.0001_initial">homepage.migrations.0001_initial module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="homepage.migrations.html#homepage.migrations.0001_initial.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="homepage.migrations.html#homepage.migrations.0001_initial.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.migrations.html#homepage.migrations.0001_initial.Migration.initial"><code class="docutils literal notranslate"><span class="pre">Migration.initial</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.migrations.html#homepage.migrations.0001_initial.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="homepage.migrations.html#module-homepage.migrations.0002_timing_doctor_timings">homepage.migrations.0002_timing_doctor_timings module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="homepage.migrations.html#homepage.migrations.0002_timing_doctor_timings.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="homepage.migrations.html#homepage.migrations.0002_timing_doctor_timings.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.migrations.html#homepage.migrations.0002_timing_doctor_timings.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="homepage.migrations.html#module-homepage.migrations.0003_remove_doctor_timings_timing_doctor">homepage.migrations.0003_remove_doctor_timings_timing_doctor module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="homepage.migrations.html#homepage.migrations.0003_remove_doctor_timings_timing_doctor.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="homepage.migrations.html#homepage.migrations.0003_remove_doctor_timings_timing_doctor.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.migrations.html#homepage.migrations.0003_remove_doctor_timings_timing_doctor.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="homepage.migrations.html#module-homepage.migrations.0004_remove_appointment_time_appointment_timing">homepage.migrations.0004_remove_appointment_time_appointment_timing module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="homepage.migrations.html#homepage.migrations.0004_remove_appointment_time_appointment_timing.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="homepage.migrations.html#homepage.migrations.0004_remove_appointment_time_appointment_timing.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="homepage.migrations.html#homepage.migrations.0004_remove_appointment_time_appointment_timing.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="homepage.migrations.html#module-homepage.migrations">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-homepage.admin">
+<span id="homepage-admin-module"></span><h2>homepage.admin module<a class="headerlink" href="#module-homepage.admin" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="homepage.admin.AppointmentAdmin">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">homepage.admin.</span></span><span class="sig-name descname"><span class="pre">AppointmentAdmin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">admin_site</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/homepage/admin.html#AppointmentAdmin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#homepage.admin.AppointmentAdmin" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelAdmin</span></code></p>
+<p>This class represents the admin interface for the Appointment model.
+Currently, it doesn’t add any additional functionality to the default admin interface.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="homepage.admin.AppointmentAdmin.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#homepage.admin.AppointmentAdmin.media" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="homepage.admin.DoctorAdmin">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">homepage.admin.</span></span><span class="sig-name descname"><span class="pre">DoctorAdmin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">admin_site</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/homepage/admin.html#DoctorAdmin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#homepage.admin.DoctorAdmin" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelAdmin</span></code></p>
+<p>This class represents the admin interface for the Doctor model.
+Currently, it doesn’t add any additional functionality to the default admin interface.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="homepage.admin.DoctorAdmin.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#homepage.admin.DoctorAdmin.media" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="homepage.admin.PatientAdmin">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">homepage.admin.</span></span><span class="sig-name descname"><span class="pre">PatientAdmin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">admin_site</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/homepage/admin.html#PatientAdmin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#homepage.admin.PatientAdmin" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelAdmin</span></code></p>
+<p>This class represents the admin interface for the Patient model.
+Currently, it doesn’t add any additional functionality to the default admin interface.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="homepage.admin.PatientAdmin.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#homepage.admin.PatientAdmin.media" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-homepage.apps">
+<span id="homepage-apps-module"></span><h2>homepage.apps module<a class="headerlink" href="#module-homepage.apps" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="homepage.apps.HomepageConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">homepage.apps.</span></span><span class="sig-name descname"><span class="pre">HomepageConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">app_module</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/homepage/apps.html#HomepageConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#homepage.apps.HomepageConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">AppConfig</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="homepage.apps.HomepageConfig.default_auto_field">
+<span class="sig-name descname"><span class="pre">default_auto_field</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'django.db.models.BigAutoField'</span></em><a class="headerlink" href="#homepage.apps.HomepageConfig.default_auto_field" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="homepage.apps.HomepageConfig.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'homepage'</span></em><a class="headerlink" href="#homepage.apps.HomepageConfig.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-homepage.forms">
+<span id="homepage-forms-module"></span><h2>homepage.forms module<a class="headerlink" href="#module-homepage.forms" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="homepage.forms.AppointmentForm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">homepage.forms.</span></span><span class="sig-name descname"><span class="pre">AppointmentForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">files=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_id='id_%s'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_class=&lt;class</span> <span class="pre">'django.forms.utils.ErrorList'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_suffix=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">empty_permitted=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_required_attribute=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">renderer=None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/homepage/forms.html#AppointmentForm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#homepage.forms.AppointmentForm" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelForm</span></code></p>
+<p>A form for booking a doctor appointment.</p>
+<p>This form is associated with the Appointment model. It includes fields for selecting
+a timing.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>timing (ModelChoiceField): A field for selecting a timing.</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="homepage.forms.AppointmentForm.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="reference internal" href="_modules/homepage/forms.html#AppointmentForm.Meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#homepage.forms.AppointmentForm.Meta" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="homepage.forms.AppointmentForm.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['timing']</span></em><a class="headerlink" href="#homepage.forms.AppointmentForm.Meta.fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="homepage.forms.AppointmentForm.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#homepage.forms.AppointmentForm.Meta.model" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#homepage.models.Appointment" title="homepage.models.Appointment"><code class="xref py py-class docutils literal notranslate"><span class="pre">Appointment</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="homepage.forms.AppointmentForm.base_fields">
+<span class="sig-name descname"><span class="pre">base_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'timing':</span> <span class="pre">&lt;django.forms.models.ModelChoiceField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#homepage.forms.AppointmentForm.base_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="homepage.forms.AppointmentForm.declared_fields">
+<span class="sig-name descname"><span class="pre">declared_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'timing':</span> <span class="pre">&lt;django.forms.models.ModelChoiceField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#homepage.forms.AppointmentForm.declared_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="homepage.forms.AppointmentForm.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#homepage.forms.AppointmentForm.media" title="Link to this definition"></a></dt>
+<dd><p>Return all media required to render the widgets on this form.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="homepage.forms.DoctorForm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">homepage.forms.</span></span><span class="sig-name descname"><span class="pre">DoctorForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">files=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_id='id_%s'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_class=&lt;class</span> <span class="pre">'django.forms.utils.ErrorList'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_suffix=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">empty_permitted=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_required_attribute=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">renderer=None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/homepage/forms.html#DoctorForm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#homepage.forms.DoctorForm" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelForm</span></code></p>
+<p>A form for registering a new doctor.</p>
+<p>This form is a ModelForm for the Doctor model. It includes fields for the description,
+department, photo, phone number, and NID of the doctor.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>Meta.model (Model): The model class this form is associated with (Doctor).
+Meta.fields (list): The fields included in this form.</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="homepage.forms.DoctorForm.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="reference internal" href="_modules/homepage/forms.html#DoctorForm.Meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#homepage.forms.DoctorForm.Meta" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="homepage.forms.DoctorForm.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['description',</span> <span class="pre">'department',</span> <span class="pre">'photo',</span> <span class="pre">'phone_number',</span> <span class="pre">'nid']</span></em><a class="headerlink" href="#homepage.forms.DoctorForm.Meta.fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="homepage.forms.DoctorForm.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#homepage.forms.DoctorForm.Meta.model" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#homepage.models.Doctor" title="homepage.models.Doctor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Doctor</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="homepage.forms.DoctorForm.base_fields">
+<span class="sig-name descname"><span class="pre">base_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'department':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'description':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'nid':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'phone_number':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'photo':</span> <span class="pre">&lt;django.forms.fields.ImageField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#homepage.forms.DoctorForm.base_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="homepage.forms.DoctorForm.declared_fields">
+<span class="sig-name descname"><span class="pre">declared_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#homepage.forms.DoctorForm.declared_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="homepage.forms.DoctorForm.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#homepage.forms.DoctorForm.media" title="Link to this definition"></a></dt>
+<dd><p>Return all media required to render the widgets on this form.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="homepage.forms.DoctorSearchForm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">homepage.forms.</span></span><span class="sig-name descname"><span class="pre">DoctorSearchForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">files=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_id='id_%s'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_class=&lt;class</span> <span class="pre">'django.forms.utils.ErrorList'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_suffix=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">empty_permitted=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field_order=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_required_attribute=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">renderer=None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/homepage/forms.html#DoctorSearchForm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#homepage.forms.DoctorSearchForm" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Form</span></code></p>
+<p>A form for searching doctors.</p>
+<p>This form includes a single field for the search term.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>search_term (CharField): The field for the search term.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="homepage.forms.DoctorSearchForm.base_fields">
+<span class="sig-name descname"><span class="pre">base_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'search_term':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#homepage.forms.DoctorSearchForm.base_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="homepage.forms.DoctorSearchForm.declared_fields">
+<span class="sig-name descname"><span class="pre">declared_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'search_term':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#homepage.forms.DoctorSearchForm.declared_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="homepage.forms.DoctorSearchForm.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#homepage.forms.DoctorSearchForm.media" title="Link to this definition"></a></dt>
+<dd><p>Return all media required to render the widgets on this form.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="homepage.forms.PatientForm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">homepage.forms.</span></span><span class="sig-name descname"><span class="pre">PatientForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">files=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_id='id_%s'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_class=&lt;class</span> <span class="pre">'django.forms.utils.ErrorList'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_suffix=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">empty_permitted=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_required_attribute=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">renderer=None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/homepage/forms.html#PatientForm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#homepage.forms.PatientForm" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelForm</span></code></p>
+<p>A form for registering a new patient.</p>
+<p>This form is a ModelForm for the Patient model. It includes fields for the age,
+blood group, photo, phone number, and NID of the patient.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>Meta.model (Model): The model class this form is associated with (Patient).
+Meta.fields (list): The fields included in this form.</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="homepage.forms.PatientForm.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="reference internal" href="_modules/homepage/forms.html#PatientForm.Meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#homepage.forms.PatientForm.Meta" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="homepage.forms.PatientForm.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['age',</span> <span class="pre">'blood_group',</span> <span class="pre">'photo',</span> <span class="pre">'phone_number',</span> <span class="pre">'nid']</span></em><a class="headerlink" href="#homepage.forms.PatientForm.Meta.fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="homepage.forms.PatientForm.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#homepage.forms.PatientForm.Meta.model" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#homepage.models.Patient" title="homepage.models.Patient"><code class="xref py py-class docutils literal notranslate"><span class="pre">Patient</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="homepage.forms.PatientForm.base_fields">
+<span class="sig-name descname"><span class="pre">base_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'age':</span> <span class="pre">&lt;django.forms.fields.IntegerField</span> <span class="pre">object&gt;,</span> <span class="pre">'blood_group':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'nid':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'phone_number':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'photo':</span> <span class="pre">&lt;django.forms.fields.ImageField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#homepage.forms.PatientForm.base_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="homepage.forms.PatientForm.declared_fields">
+<span class="sig-name descname"><span class="pre">declared_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#homepage.forms.PatientForm.declared_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="homepage.forms.PatientForm.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#homepage.forms.PatientForm.media" title="Link to this definition"></a></dt>
+<dd><p>Return all media required to render the widgets on this form.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="homepage.forms.TimingForm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">homepage.forms.</span></span><span class="sig-name descname"><span class="pre">TimingForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">files=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_id='id_%s'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_class=&lt;class</span> <span class="pre">'django.forms.utils.ErrorList'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_suffix=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">empty_permitted=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_required_attribute=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">renderer=None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/homepage/forms.html#TimingForm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#homepage.forms.TimingForm" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelForm</span></code></p>
+<p>A form for creating a new timing.</p>
+<p>This form is a ModelForm for the Timing model. It includes fields for the day
+and time period of the timing.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>Meta.model (Model): The model class this form is associated with (Timing).
+Meta.fields (list): The fields included in this form.</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="homepage.forms.TimingForm.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="reference internal" href="_modules/homepage/forms.html#TimingForm.Meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#homepage.forms.TimingForm.Meta" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="homepage.forms.TimingForm.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['day',</span> <span class="pre">'time_period']</span></em><a class="headerlink" href="#homepage.forms.TimingForm.Meta.fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="homepage.forms.TimingForm.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#homepage.forms.TimingForm.Meta.model" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#homepage.models.Timing" title="homepage.models.Timing"><code class="xref py py-class docutils literal notranslate"><span class="pre">Timing</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="homepage.forms.TimingForm.base_fields">
+<span class="sig-name descname"><span class="pre">base_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'day':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'time_period':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#homepage.forms.TimingForm.base_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="homepage.forms.TimingForm.declared_fields">
+<span class="sig-name descname"><span class="pre">declared_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#homepage.forms.TimingForm.declared_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="homepage.forms.TimingForm.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#homepage.forms.TimingForm.media" title="Link to this definition"></a></dt>
+<dd><p>Return all media required to render the widgets on this form.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="homepage.forms.UserRegistrationForm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">homepage.forms.</span></span><span class="sig-name descname"><span class="pre">UserRegistrationForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/homepage/forms.html#UserRegistrationForm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#homepage.forms.UserRegistrationForm" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">UserCreationForm</span></code></p>
+<p>A form for registering a new user.</p>
+<p>This form inherits from UserCreationForm and adds fields for the first name
+and last name of the user.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><dl class="simple">
+<dt>Meta.fields (tuple): A tuple containing the fields of UserCreationForm</dt><dd><p>plus ‘first_name’ and ‘last_name’.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="homepage.forms.UserRegistrationForm.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="reference internal" href="_modules/homepage/forms.html#UserRegistrationForm.Meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#homepage.forms.UserRegistrationForm.Meta" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Meta</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="homepage.forms.UserRegistrationForm.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('username',</span> <span class="pre">'first_name',</span> <span class="pre">'last_name')</span></em><a class="headerlink" href="#homepage.forms.UserRegistrationForm.Meta.fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="homepage.forms.UserRegistrationForm.base_fields">
+<span class="sig-name descname"><span class="pre">base_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'first_name':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'last_name':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'password1':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'password2':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'username':</span> <span class="pre">&lt;django.contrib.auth.forms.UsernameField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#homepage.forms.UserRegistrationForm.base_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="homepage.forms.UserRegistrationForm.declared_fields">
+<span class="sig-name descname"><span class="pre">declared_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'password1':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'password2':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#homepage.forms.UserRegistrationForm.declared_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="homepage.forms.UserRegistrationForm.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#homepage.forms.UserRegistrationForm.media" title="Link to this definition"></a></dt>
+<dd><p>Return all media required to render the widgets on this form.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-homepage.models">
+<span id="homepage-models-module"></span><h2>homepage.models module<a class="headerlink" href="#module-homepage.models" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="homepage.models.Appointment">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">homepage.models.</span></span><span class="sig-name descname"><span class="pre">Appointment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/homepage/models.html#Appointment"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#homepage.models.Appointment" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>The Appointment model represents an appointment in the hospital.</p>
+<p>Each appointment is associated with a specific doctor and patient,
+and has a date and selected timing.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>doctor (ForeignKey): The doctor associated with the appointment.
+patient (ForeignKey): The patient associated with the appointment.
+date (DateField): The date of the appointment.
+timing (ForeignKey): The selected timing of the appointment from the doctor’s timings.</p>
+</dd>
+</dl>
+<dl class="py exception">
+<dt class="sig sig-object py" id="homepage.models.Appointment.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#homepage.models.Appointment.DoesNotExist" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="homepage.models.Appointment.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#homepage.models.Appointment.MultipleObjectsReturned" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="homepage.models.Appointment.date">
+<span class="sig-name descname"><span class="pre">date</span></span><a class="headerlink" href="#homepage.models.Appointment.date" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="homepage.models.Appointment.doctor">
+<span class="sig-name descname"><span class="pre">doctor</span></span><a class="headerlink" href="#homepage.models.Appointment.doctor" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="homepage.models.Appointment.doctor_id">
+<span class="sig-name descname"><span class="pre">doctor_id</span></span><a class="headerlink" href="#homepage.models.Appointment.doctor_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="homepage.models.Appointment.get_next_by_date">
+<span class="sig-name descname"><span class="pre">get_next_by_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateField:</span> <span class="pre">date&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#homepage.models.Appointment.get_next_by_date" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="homepage.models.Appointment.get_previous_by_date">
+<span class="sig-name descname"><span class="pre">get_previous_by_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateField:</span> <span class="pre">date&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#homepage.models.Appointment.get_previous_by_date" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="homepage.models.Appointment.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#homepage.models.Appointment.id" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="homepage.models.Appointment.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#homepage.models.Appointment.objects" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="homepage.models.Appointment.patient">
+<span class="sig-name descname"><span class="pre">patient</span></span><a class="headerlink" href="#homepage.models.Appointment.patient" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="homepage.models.Appointment.patient_id">
+<span class="sig-name descname"><span class="pre">patient_id</span></span><a class="headerlink" href="#homepage.models.Appointment.patient_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="homepage.models.Appointment.timing">
+<span class="sig-name descname"><span class="pre">timing</span></span><a class="headerlink" href="#homepage.models.Appointment.timing" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="homepage.models.Appointment.timing_id">
+<span class="sig-name descname"><span class="pre">timing_id</span></span><a class="headerlink" href="#homepage.models.Appointment.timing_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="homepage.models.Doctor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">homepage.models.</span></span><span class="sig-name descname"><span class="pre">Doctor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/homepage/models.html#Doctor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#homepage.models.Doctor" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>The Doctor model represents a doctor in the hospital.</p>
+<p>Each doctor has a one-to-one relation with a User, which is used for authentication.
+Each doctor also has a description, a department, a photo, a phone number, and a NID.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>user (OneToOneField): The user associated with the doctor.
+description (TextField): The description of the doctor.
+department (CharField): The department of the doctor.
+photo (ImageField): The photo of the doctor.
+phone_number (CharField): The phone number of the doctor.
+nid (CharField): The NID of the doctor.</p>
+</dd>
+</dl>
+<dl class="py exception">
+<dt class="sig sig-object py" id="homepage.models.Doctor.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#homepage.models.Doctor.DoesNotExist" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="homepage.models.Doctor.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#homepage.models.Doctor.MultipleObjectsReturned" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="homepage.models.Doctor.appointment_set">
+<span class="sig-name descname"><span class="pre">appointment_set</span></span><a class="headerlink" href="#homepage.models.Doctor.appointment_set" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="homepage.models.Doctor.department">
+<span class="sig-name descname"><span class="pre">department</span></span><a class="headerlink" href="#homepage.models.Doctor.department" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="homepage.models.Doctor.description">
+<span class="sig-name descname"><span class="pre">description</span></span><a class="headerlink" href="#homepage.models.Doctor.description" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="homepage.models.Doctor.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#homepage.models.Doctor.id" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="homepage.models.Doctor.nid">
+<span class="sig-name descname"><span class="pre">nid</span></span><a class="headerlink" href="#homepage.models.Doctor.nid" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="homepage.models.Doctor.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#homepage.models.Doctor.objects" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="homepage.models.Doctor.phone_number">
+<span class="sig-name descname"><span class="pre">phone_number</span></span><a class="headerlink" href="#homepage.models.Doctor.phone_number" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="homepage.models.Doctor.photo">
+<span class="sig-name descname"><span class="pre">photo</span></span><a class="headerlink" href="#homepage.models.Doctor.photo" title="Link to this definition"></a></dt>
+<dd><p>Just like the FileDescriptor, but for ImageFields. The only difference is
+assigning the width/height to the width_field/height_field, if appropriate.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="homepage.models.Doctor.timings">
+<span class="sig-name descname"><span class="pre">timings</span></span><a class="headerlink" href="#homepage.models.Doctor.timings" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="homepage.models.Doctor.user">
+<span class="sig-name descname"><span class="pre">user</span></span><a class="headerlink" href="#homepage.models.Doctor.user" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a one-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Restaurant</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">place</span> <span class="o">=</span> <span class="n">OneToOneField</span><span class="p">(</span><span class="n">Place</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;restaurant&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Restaurant.place</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardOneToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="homepage.models.Doctor.user_id">
+<span class="sig-name descname"><span class="pre">user_id</span></span><a class="headerlink" href="#homepage.models.Doctor.user_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="homepage.models.Patient">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">homepage.models.</span></span><span class="sig-name descname"><span class="pre">Patient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/homepage/models.html#Patient"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#homepage.models.Patient" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>The Patient model represents a patient in the hospital.</p>
+<p>Each patient has a one-to-one relation with a User, which is used for authentication.
+Each patient also has an age, a blood group, a photo, a phone number, and a NID.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>user (OneToOneField): The user associated with the patient.
+age (IntegerField): The age of the patient.
+blood_group (CharField): The blood group of the patient.
+photo (ImageField): The photo of the patient.
+phone_number (CharField): The phone number of the patient.
+nid (CharField): The NID of the patient.</p>
+</dd>
+</dl>
+<dl class="py exception">
+<dt class="sig sig-object py" id="homepage.models.Patient.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#homepage.models.Patient.DoesNotExist" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="homepage.models.Patient.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#homepage.models.Patient.MultipleObjectsReturned" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="homepage.models.Patient.age">
+<span class="sig-name descname"><span class="pre">age</span></span><a class="headerlink" href="#homepage.models.Patient.age" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="homepage.models.Patient.appointment_set">
+<span class="sig-name descname"><span class="pre">appointment_set</span></span><a class="headerlink" href="#homepage.models.Patient.appointment_set" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="homepage.models.Patient.blood_group">
+<span class="sig-name descname"><span class="pre">blood_group</span></span><a class="headerlink" href="#homepage.models.Patient.blood_group" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="homepage.models.Patient.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#homepage.models.Patient.id" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="homepage.models.Patient.nid">
+<span class="sig-name descname"><span class="pre">nid</span></span><a class="headerlink" href="#homepage.models.Patient.nid" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="homepage.models.Patient.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#homepage.models.Patient.objects" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="homepage.models.Patient.phone_number">
+<span class="sig-name descname"><span class="pre">phone_number</span></span><a class="headerlink" href="#homepage.models.Patient.phone_number" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="homepage.models.Patient.photo">
+<span class="sig-name descname"><span class="pre">photo</span></span><a class="headerlink" href="#homepage.models.Patient.photo" title="Link to this definition"></a></dt>
+<dd><p>Just like the FileDescriptor, but for ImageFields. The only difference is
+assigning the width/height to the width_field/height_field, if appropriate.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="homepage.models.Patient.user">
+<span class="sig-name descname"><span class="pre">user</span></span><a class="headerlink" href="#homepage.models.Patient.user" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a one-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Restaurant</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">place</span> <span class="o">=</span> <span class="n">OneToOneField</span><span class="p">(</span><span class="n">Place</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;restaurant&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Restaurant.place</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardOneToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="homepage.models.Patient.user_id">
+<span class="sig-name descname"><span class="pre">user_id</span></span><a class="headerlink" href="#homepage.models.Patient.user_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="homepage.models.Timing">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">homepage.models.</span></span><span class="sig-name descname"><span class="pre">Timing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/homepage/models.html#Timing"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#homepage.models.Timing" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>The Timing model represents a timing slot for a doctor.</p>
+<p>Each timing slot has a day, a time period, and is associated with a specific doctor.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>day (CharField): The day of the timing slot.
+time_period (CharField): The time period of the timing slot.
+doctor (ForeignKey): The doctor associated with the timing slot.</p>
+</dd>
+</dl>
+<dl class="py exception">
+<dt class="sig sig-object py" id="homepage.models.Timing.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#homepage.models.Timing.DoesNotExist" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="homepage.models.Timing.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#homepage.models.Timing.MultipleObjectsReturned" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="homepage.models.Timing.appointment_set">
+<span class="sig-name descname"><span class="pre">appointment_set</span></span><a class="headerlink" href="#homepage.models.Timing.appointment_set" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="homepage.models.Timing.day">
+<span class="sig-name descname"><span class="pre">day</span></span><a class="headerlink" href="#homepage.models.Timing.day" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="homepage.models.Timing.doctor">
+<span class="sig-name descname"><span class="pre">doctor</span></span><a class="headerlink" href="#homepage.models.Timing.doctor" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="homepage.models.Timing.doctor_id">
+<span class="sig-name descname"><span class="pre">doctor_id</span></span><a class="headerlink" href="#homepage.models.Timing.doctor_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="homepage.models.Timing.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#homepage.models.Timing.id" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="homepage.models.Timing.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#homepage.models.Timing.objects" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="homepage.models.Timing.time_period">
+<span class="sig-name descname"><span class="pre">time_period</span></span><a class="headerlink" href="#homepage.models.Timing.time_period" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-homepage.tests">
+<span id="homepage-tests-module"></span><h2>homepage.tests module<a class="headerlink" href="#module-homepage.tests" title="Link to this heading"></a></h2>
+</section>
+<section id="module-homepage.views">
+<span id="homepage-views-module"></span><h2>homepage.views module<a class="headerlink" href="#module-homepage.views" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="homepage.views.about_us">
+<span class="sig-prename descclassname"><span class="pre">homepage.views.</span></span><span class="sig-name descname"><span class="pre">about_us</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/homepage/views.html#about_us"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#homepage.views.about_us" title="Link to this definition"></a></dt>
+<dd><p>Render the About Us page.</p>
+<p>This view renders the about_us.html template.</p>
+<p>Parameters:
+request (HttpRequest): The HTTP request object.</p>
+<p>Returns:
+HttpResponse: The HTTP response that renders the about_us.html template.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="homepage.views.bed_reservation">
+<span class="sig-prename descclassname"><span class="pre">homepage.views.</span></span><span class="sig-name descname"><span class="pre">bed_reservation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/homepage/views.html#bed_reservation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#homepage.views.bed_reservation" title="Link to this definition"></a></dt>
+<dd><p>Render the bed reservation page.</p>
+<p>This view renders the bed_reservation.html template.</p>
+<p>Parameters:
+request (HttpRequest): The HTTP request object.</p>
+<p>Returns:
+HttpResponse: The HTTP response that renders the bed_reservation.html template.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="homepage.views.blood_bank">
+<span class="sig-prename descclassname"><span class="pre">homepage.views.</span></span><span class="sig-name descname"><span class="pre">blood_bank</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/homepage/views.html#blood_bank"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#homepage.views.blood_bank" title="Link to this definition"></a></dt>
+<dd><p>Render the blood bank page.</p>
+<p>This view renders the blood_bank.html template.</p>
+<p>Parameters:
+request (HttpRequest): The HTTP request object.</p>
+<p>Returns:
+HttpResponse: The HTTP response that renders the blood_bank.html template.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="homepage.views.book_doctor_appointment">
+<span class="sig-prename descclassname"><span class="pre">homepage.views.</span></span><span class="sig-name descname"><span class="pre">book_doctor_appointment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">username</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/homepage/views.html#book_doctor_appointment"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#homepage.views.book_doctor_appointment" title="Link to this definition"></a></dt>
+<dd><p>Handle booking of doctor appointments.</p>
+<p>This view handles the POST request for booking a doctor appointment. It creates and validates
+an AppointmentForm. If the form is valid and the user is not a doctor, it saves the appointment instance,
+and then redirects to the appointments page.</p>
+<p>If the request method is not POST, if the form is not valid, or if the user is a doctor,
+it renders the book_doctor_appointment.html template with the form.</p>
+<p>Parameters:
+request (HttpRequest): The HTTP request object.
+username (str): The username of the doctor.</p>
+<p>Returns:
+HttpResponse: The HTTP response. If the request method is POST, the form is valid, and the user is not a doctor,</p>
+<blockquote>
+<div><p>it redirects to the appointments page. Otherwise, it renders the book_appointment.html template with
+the form.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="homepage.views.dashboard">
+<span class="sig-prename descclassname"><span class="pre">homepage.views.</span></span><span class="sig-name descname"><span class="pre">dashboard</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/homepage/views.html#dashboard"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#homepage.views.dashboard" title="Link to this definition"></a></dt>
+<dd><p>Render the dashboard view.</p>
+<p>This view renders the dashboard.html template with the current user as context.</p>
+<p>Parameters:
+request (HttpRequest): The HTTP request object.</p>
+<p>Returns:
+HttpResponse: The HTTP response that renders the dashboard.html template.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="homepage.views.doctor_appointment_confirmation">
+<span class="sig-prename descclassname"><span class="pre">homepage.views.</span></span><span class="sig-name descname"><span class="pre">doctor_appointment_confirmation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">username</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/homepage/views.html#doctor_appointment_confirmation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#homepage.views.doctor_appointment_confirmation" title="Link to this definition"></a></dt>
+<dd><p>Display a confirmation message after an appointment is booked.</p>
+<p>This view renders the appointment_confirmation.html template, which displays a confirmation message.</p>
+<p>Parameters:
+request (HttpRequest): The HTTP request object.</p>
+<p>Returns:
+HttpResponse: The HTTP response. It renders the appointment_confirmation.html template.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="homepage.views.doctor_detail">
+<span class="sig-prename descclassname"><span class="pre">homepage.views.</span></span><span class="sig-name descname"><span class="pre">doctor_detail</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">username</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/homepage/views.html#doctor_detail"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#homepage.views.doctor_detail" title="Link to this definition"></a></dt>
+<dd><p>Display details for a specific doctor.</p>
+<p>This view gets a Doctor object by username and renders the doctor_detail.html template
+with this doctor as context.</p>
+<p>Parameters:
+request (HttpRequest): The HTTP request object.
+username (str): The username of the doctor.</p>
+<p>Returns:
+HttpResponse: The HTTP response that renders the doctor_detail.html template.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="homepage.views.doctors">
+<span class="sig-prename descclassname"><span class="pre">homepage.views.</span></span><span class="sig-name descname"><span class="pre">doctors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/homepage/views.html#doctors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#homepage.views.doctors" title="Link to this definition"></a></dt>
+<dd><p>Render the doctors page.</p>
+<p>This view renders the doctors.html template.</p>
+<p>Parameters:
+request (HttpRequest): The HTTP request object.</p>
+<p>Returns:
+HttpResponse: The HTTP response that renders the doctors.html template.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="homepage.views.emergency_services">
+<span class="sig-prename descclassname"><span class="pre">homepage.views.</span></span><span class="sig-name descname"><span class="pre">emergency_services</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/homepage/views.html#emergency_services"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#homepage.views.emergency_services" title="Link to this definition"></a></dt>
+<dd><p>Render the emergency services page.</p>
+<p>This view renders the emergency_services.html template.</p>
+<p>Parameters:
+request (HttpRequest): The HTTP request object.</p>
+<p>Returns:
+HttpResponse: The HTTP response that renders the emergency_services.html template.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="homepage.views.home_screen_view">
+<span class="sig-prename descclassname"><span class="pre">homepage.views.</span></span><span class="sig-name descname"><span class="pre">home_screen_view</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/homepage/views.html#home_screen_view"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#homepage.views.home_screen_view" title="Link to this definition"></a></dt>
+<dd><p>Render the home screen view.</p>
+<p>This view renders the homepage/homepage.html template.</p>
+<p>Parameters:
+request (HttpRequest): The HTTP request object.</p>
+<p>Returns:
+HttpResponse: The HTTP response that renders the homepage/homepage.html template.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="homepage.views.login_view">
+<span class="sig-prename descclassname"><span class="pre">homepage.views.</span></span><span class="sig-name descname"><span class="pre">login_view</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/homepage/views.html#login_view"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#homepage.views.login_view" title="Link to this definition"></a></dt>
+<dd><p>Handle user login.</p>
+<p>This view handles the POST request for user login. It authenticates the user
+using the provided username and password. If the authentication is successful,
+it logs in the user and redirects them to the appropriate page based on their
+user type. If the user is a superuser, they are redirected to the admin page.
+Otherwise, they are redirected to the dashboard.</p>
+<p>Parameters:
+request (HttpRequest): The HTTP request object.</p>
+<p>Returns:
+HttpResponse: The HTTP response. If the request method is POST and the user is</p>
+<blockquote>
+<div><p>authenticated, it redirects to the appropriate page. Otherwise,
+it renders the login page.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="homepage.views.logout_view">
+<span class="sig-prename descclassname"><span class="pre">homepage.views.</span></span><span class="sig-name descname"><span class="pre">logout_view</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/homepage/views.html#logout_view"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#homepage.views.logout_view" title="Link to this definition"></a></dt>
+<dd><p>Log out the user and redirect them to the home screen view.</p>
+<p>This view logs out the user using Django’s logout() function, then redirects
+them to the home screen view.</p>
+<p>Parameters:
+request (HttpRequest): The HTTP request object.</p>
+<p>Returns:
+HttpResponseRedirect: An HTTP response that redirects to the home screen view.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="homepage.views.privacy_policy">
+<span class="sig-prename descclassname"><span class="pre">homepage.views.</span></span><span class="sig-name descname"><span class="pre">privacy_policy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/homepage/views.html#privacy_policy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#homepage.views.privacy_policy" title="Link to this definition"></a></dt>
+<dd><p>Render the Privacy Policy page.</p>
+<p>This view renders the privacy_policy.html template.</p>
+<p>Parameters:
+request (HttpRequest): The HTTP request object.</p>
+<p>Returns:
+HttpResponse: The HTTP response that renders the privacy_policy.html template.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="homepage.views.register_doctor">
+<span class="sig-prename descclassname"><span class="pre">homepage.views.</span></span><span class="sig-name descname"><span class="pre">register_doctor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/homepage/views.html#register_doctor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#homepage.views.register_doctor" title="Link to this definition"></a></dt>
+<dd><p>Handle doctor registration.</p>
+<p>This view handles the POST request for doctor registration. It creates and validates
+a UserRegistrationForm, a DoctorForm, and a TimingFormSet. If all forms are valid,
+it saves the user and doctor instances, associates each timing instance with the doctor,
+and saves them. Then it redirects to the login page.</p>
+<p>If the request method is not POST or if any form is not valid, it renders the
+register_doctor.html template with the forms.</p>
+<p>Parameters:
+request (HttpRequest): The HTTP request object.</p>
+<p>Returns:
+HttpResponse: The HTTP response. If the request method is POST and all forms are valid,</p>
+<blockquote>
+<div><p>it redirects to the login page. Otherwise, it renders the register_doctor.html
+template with the forms.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="homepage.views.register_patient">
+<span class="sig-prename descclassname"><span class="pre">homepage.views.</span></span><span class="sig-name descname"><span class="pre">register_patient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/homepage/views.html#register_patient"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#homepage.views.register_patient" title="Link to this definition"></a></dt>
+<dd><p>Handle patient registration.</p>
+<p>This view handles the POST request for patient registration. It creates and validates
+a UserRegistrationForm and a PatientForm. If both forms are valid, it saves the user
+and patient instances and redirects to the login page.</p>
+<p>If the request method is not POST or if any form is not valid, it renders the
+register_patient.html template with the forms.</p>
+<p>Parameters:
+request (HttpRequest): The HTTP request object.</p>
+<p>Returns:
+HttpResponse: The HTTP response. If the request method is POST and both forms are valid,</p>
+<blockquote>
+<div><p>it redirects to the login page. Otherwise, it renders the register_patient.html
+template with the forms.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="homepage.views.search">
+<span class="sig-prename descclassname"><span class="pre">homepage.views.</span></span><span class="sig-name descname"><span class="pre">search</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/homepage/views.html#search"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#homepage.views.search" title="Link to this definition"></a></dt>
+<dd><p>Handle the form submission and search for doctors.</p>
+<p>This view handles the POST request for searching doctors. It creates and validates
+a DoctorSearchForm. If the form is valid, it splits the search term into words and
+matches them with the first name and last name of the doctors. If no doctors are found,
+it renders the search_doctor.html template with an error message. Otherwise, it renders
+the same template with the found doctors.</p>
+<p>If the request method is not POST or if the form is not valid, it renders the
+homepage/homepage.html template.</p>
+<p>Parameters:
+request (HttpRequest): The HTTP request object.</p>
+<p>Returns:
+HttpResponse: The HTTP response. If the request method is POST and the form is valid,</p>
+<blockquote>
+<div><p>it renders the search_doctor.html template with either an error message
+or the found doctors. Otherwise, it renders the homepage/homepage.html
+template.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="homepage.views.services">
+<span class="sig-prename descclassname"><span class="pre">homepage.views.</span></span><span class="sig-name descname"><span class="pre">services</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/homepage/views.html#services"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#homepage.views.services" title="Link to this definition"></a></dt>
+<dd><p>Render the services page.</p>
+<p>This view renders the services.html template.</p>
+<p>Parameters:
+request (HttpRequest): The HTTP request object.</p>
+<p>Returns:
+HttpResponse: The HTTP response that renders the services.html template.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="homepage.views.staff">
+<span class="sig-prename descclassname"><span class="pre">homepage.views.</span></span><span class="sig-name descname"><span class="pre">staff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/homepage/views.html#staff"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#homepage.views.staff" title="Link to this definition"></a></dt>
+<dd><p>Render the staff page.</p>
+<p>This view renders the staff.html template.</p>
+<p>Parameters:
+request (HttpRequest): The HTTP request object.</p>
+<p>Returns:
+HttpResponse: The HTTP response that renders the staff.html template.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="homepage.views.terms_conditions">
+<span class="sig-prename descclassname"><span class="pre">homepage.views.</span></span><span class="sig-name descname"><span class="pre">terms_conditions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/homepage/views.html#terms_conditions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#homepage.views.terms_conditions" title="Link to this definition"></a></dt>
+<dd><p>Render the Terms &amp; Conditions page.</p>
+<p>This view renders the terms_conditions.html template.</p>
+<p>Parameters:
+request (HttpRequest): The HTTP request object.</p>
+<p>Returns:
+HttpResponse: The HTTP response that renders the terms_conditions.html template.</p>
+</dd></dl>
+
+</section>
+<section id="module-homepage">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-homepage" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Rashik.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

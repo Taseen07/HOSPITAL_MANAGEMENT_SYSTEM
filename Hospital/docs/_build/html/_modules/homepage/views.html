@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>homepage.views &mdash; Hospital Management System 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=8d563738"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Hospital Management System
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Hospital Management System</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">homepage.views</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for homepage.views</h1><div class="highlight"><pre>
+<span></span><span class="c1"># views.py</span>
+<span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span><span class="p">,</span> <span class="n">redirect</span>
+<span class="kn">from</span> <span class="nn">django.contrib.auth</span> <span class="kn">import</span> <span class="n">authenticate</span><span class="p">,</span> <span class="n">login</span><span class="p">,</span> <span class="n">logout</span>
+<span class="kn">from</span> <span class="nn">django.forms.models</span> <span class="kn">import</span> <span class="n">inlineformset_factory</span>
+<span class="kn">from</span> <span class="nn">.forms</span> <span class="kn">import</span> <span class="n">UserRegistrationForm</span><span class="p">,</span> <span class="n">DoctorForm</span><span class="p">,</span> <span class="n">PatientForm</span><span class="p">,</span> <span class="n">TimingForm</span><span class="p">,</span> <span class="n">DoctorSearchForm</span><span class="p">,</span> <span class="n">AppointmentForm</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Doctor</span><span class="p">,</span> <span class="n">Timing</span><span class="p">,</span> <span class="n">Patient</span>
+<span class="kn">from</span> <span class="nn">django.utils</span> <span class="kn">import</span> <span class="n">timezone</span>
+
+
+<div class="viewcode-block" id="login_view">
+<a class="viewcode-back" href="../../homepage.html#homepage.views.login_view">[docs]</a>
+<span class="k">def</span> <span class="nf">login_view</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Handle user login.</span>
+
+<span class="sd">    This view handles the POST request for user login. It authenticates the user</span>
+<span class="sd">    using the provided username and password. If the authentication is successful,</span>
+<span class="sd">    it logs in the user and redirects them to the appropriate page based on their</span>
+<span class="sd">    user type. If the user is a superuser, they are redirected to the admin page.</span>
+<span class="sd">    Otherwise, they are redirected to the dashboard.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    request (HttpRequest): The HTTP request object.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    HttpResponse: The HTTP response. If the request method is POST and the user is</span>
+<span class="sd">                  authenticated, it redirects to the appropriate page. Otherwise,</span>
+<span class="sd">                  it renders the login page.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Check if the request method is POST</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+        <span class="c1"># Get username and password from POST data</span>
+        <span class="n">username</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">]</span>
+        <span class="n">password</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">[</span><span class="s1">&#39;password&#39;</span><span class="p">]</span>
+
+        <span class="c1"># Authenticate user</span>
+        <span class="n">user</span> <span class="o">=</span> <span class="n">authenticate</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">password</span><span class="p">)</span>
+
+        <span class="c1"># If user is authenticated</span>
+        <span class="k">if</span> <span class="n">user</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># Log in user</span>
+            <span class="n">login</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">user</span><span class="p">)</span>
+
+            <span class="c1"># Determine redirect URL based on whether user is superuser</span>
+            <span class="n">next_url</span> <span class="o">=</span> <span class="s1">&#39;/admin/&#39;</span> <span class="k">if</span> <span class="n">user</span><span class="o">.</span><span class="n">is_superuser</span> <span class="k">else</span> <span class="s1">&#39;dashboard&#39;</span>
+
+            <span class="c1"># Redirect to determined URL</span>
+            <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">next_url</span><span class="p">)</span>
+
+    <span class="c1"># If request method is not POST or user is not authenticated, render login page</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;homepage/login.html&#39;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="logout_view">
+<a class="viewcode-back" href="../../homepage.html#homepage.views.logout_view">[docs]</a>
+<span class="k">def</span> <span class="nf">logout_view</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Log out the user and redirect them to the home screen view.</span>
+
+<span class="sd">    This view logs out the user using Django&#39;s logout() function, then redirects</span>
+<span class="sd">    them to the home screen view.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    request (HttpRequest): The HTTP request object.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    HttpResponseRedirect: An HTTP response that redirects to the home screen view.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">logout</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;home_screen_view&#39;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="register_doctor">
+<a class="viewcode-back" href="../../homepage.html#homepage.views.register_doctor">[docs]</a>
+<span class="k">def</span> <span class="nf">register_doctor</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Handle doctor registration.</span>
+
+<span class="sd">    This view handles the POST request for doctor registration. It creates and validates</span>
+<span class="sd">    a UserRegistrationForm, a DoctorForm, and a TimingFormSet. If all forms are valid,</span>
+<span class="sd">    it saves the user and doctor instances, associates each timing instance with the doctor,</span>
+<span class="sd">    and saves them. Then it redirects to the login page.</span>
+
+<span class="sd">    If the request method is not POST or if any form is not valid, it renders the</span>
+<span class="sd">    register_doctor.html template with the forms.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    request (HttpRequest): The HTTP request object.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    HttpResponse: The HTTP response. If the request method is POST and all forms are valid,</span>
+<span class="sd">                  it redirects to the login page. Otherwise, it renders the register_doctor.html</span>
+<span class="sd">                  template with the forms.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">TimingFormSet</span> <span class="o">=</span> <span class="n">inlineformset_factory</span><span class="p">(</span><span class="n">Doctor</span><span class="p">,</span> <span class="n">Timing</span><span class="p">,</span> <span class="n">form</span><span class="o">=</span><span class="n">TimingForm</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+        <span class="n">user_form</span> <span class="o">=</span> <span class="n">UserRegistrationForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">)</span>
+        <span class="n">doctor_form</span> <span class="o">=</span> <span class="n">DoctorForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">,</span> <span class="n">request</span><span class="o">.</span><span class="n">FILES</span><span class="p">)</span>
+        <span class="n">formset</span> <span class="o">=</span> <span class="n">TimingFormSet</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">user_form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">()</span> <span class="ow">and</span> <span class="n">doctor_form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">()</span> <span class="ow">and</span> <span class="n">formset</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+            <span class="n">user</span> <span class="o">=</span> <span class="n">user_form</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+            <span class="n">doctor</span> <span class="o">=</span> <span class="n">doctor_form</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">commit</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="n">doctor</span><span class="o">.</span><span class="n">user</span> <span class="o">=</span> <span class="n">user</span>
+            <span class="n">doctor</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+            <span class="n">instances</span> <span class="o">=</span> <span class="n">formset</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">commit</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">instance</span> <span class="ow">in</span> <span class="n">instances</span><span class="p">:</span>
+                <span class="n">instance</span><span class="o">.</span><span class="n">doctor</span> <span class="o">=</span> <span class="n">doctor</span>
+                <span class="n">instance</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;login&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">user_form</span> <span class="o">=</span> <span class="n">UserRegistrationForm</span><span class="p">()</span>
+        <span class="n">doctor_form</span> <span class="o">=</span> <span class="n">DoctorForm</span><span class="p">()</span>
+        <span class="n">formset</span> <span class="o">=</span> <span class="n">TimingFormSet</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;register_doctor.html&#39;</span><span class="p">,</span>
+                  <span class="p">{</span><span class="s1">&#39;user_form&#39;</span><span class="p">:</span> <span class="n">user_form</span><span class="p">,</span> <span class="s1">&#39;doctor_form&#39;</span><span class="p">:</span> <span class="n">doctor_form</span><span class="p">,</span> <span class="s1">&#39;formset&#39;</span><span class="p">:</span> <span class="n">formset</span><span class="p">})</span></div>
+
+
+
+<div class="viewcode-block" id="register_patient">
+<a class="viewcode-back" href="../../homepage.html#homepage.views.register_patient">[docs]</a>
+<span class="k">def</span> <span class="nf">register_patient</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Handle patient registration.</span>
+
+<span class="sd">    This view handles the POST request for patient registration. It creates and validates</span>
+<span class="sd">    a UserRegistrationForm and a PatientForm. If both forms are valid, it saves the user</span>
+<span class="sd">    and patient instances and redirects to the login page.</span>
+
+<span class="sd">    If the request method is not POST or if any form is not valid, it renders the</span>
+<span class="sd">    register_patient.html template with the forms.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    request (HttpRequest): The HTTP request object.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    HttpResponse: The HTTP response. If the request method is POST and both forms are valid,</span>
+<span class="sd">                  it redirects to the login page. Otherwise, it renders the register_patient.html</span>
+<span class="sd">                  template with the forms.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+        <span class="n">user_form</span> <span class="o">=</span> <span class="n">UserRegistrationForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">)</span>
+        <span class="n">patient_form</span> <span class="o">=</span> <span class="n">PatientForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">,</span> <span class="n">request</span><span class="o">.</span><span class="n">FILES</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">user_form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">()</span> <span class="ow">and</span> <span class="n">patient_form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+            <span class="n">user</span> <span class="o">=</span> <span class="n">user_form</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+            <span class="n">patient</span> <span class="o">=</span> <span class="n">patient_form</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">commit</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="n">patient</span><span class="o">.</span><span class="n">user</span> <span class="o">=</span> <span class="n">user</span>
+            <span class="n">patient</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;login&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">user_form</span> <span class="o">=</span> <span class="n">UserRegistrationForm</span><span class="p">()</span>
+        <span class="n">patient_form</span> <span class="o">=</span> <span class="n">PatientForm</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;register_patient.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;user_form&#39;</span><span class="p">:</span> <span class="n">user_form</span><span class="p">,</span> <span class="s1">&#39;patient_form&#39;</span><span class="p">:</span> <span class="n">patient_form</span><span class="p">})</span></div>
+
+
+
+<div class="viewcode-block" id="dashboard">
+<a class="viewcode-back" href="../../homepage.html#homepage.views.dashboard">[docs]</a>
+<span class="k">def</span> <span class="nf">dashboard</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   Render the dashboard view.</span>
+
+<span class="sd">   This view renders the dashboard.html template with the current user as context.</span>
+
+<span class="sd">   Parameters:</span>
+<span class="sd">   request (HttpRequest): The HTTP request object.</span>
+
+<span class="sd">   Returns:</span>
+<span class="sd">   HttpResponse: The HTTP response that renders the dashboard.html template.</span>
+<span class="sd">   &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;dashboard.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;user&#39;</span><span class="p">:</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">})</span></div>
+
+
+
+<div class="viewcode-block" id="home_screen_view">
+<a class="viewcode-back" href="../../homepage.html#homepage.views.home_screen_view">[docs]</a>
+<span class="k">def</span> <span class="nf">home_screen_view</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   Render the home screen view.</span>
+
+<span class="sd">   This view renders the homepage/homepage.html template.</span>
+
+<span class="sd">   Parameters:</span>
+<span class="sd">   request (HttpRequest): The HTTP request object.</span>
+
+<span class="sd">   Returns:</span>
+<span class="sd">   HttpResponse: The HTTP response that renders the homepage/homepage.html template.</span>
+<span class="sd">   &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;homepage/homepage.html&quot;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="search">
+<a class="viewcode-back" href="../../homepage.html#homepage.views.search">[docs]</a>
+<span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Handle the form submission and search for doctors.</span>
+
+<span class="sd">    This view handles the POST request for searching doctors. It creates and validates</span>
+<span class="sd">    a DoctorSearchForm. If the form is valid, it splits the search term into words and</span>
+<span class="sd">    matches them with the first name and last name of the doctors. If no doctors are found,</span>
+<span class="sd">    it renders the search_doctor.html template with an error message. Otherwise, it renders</span>
+<span class="sd">    the same template with the found doctors.</span>
+
+<span class="sd">    If the request method is not POST or if the form is not valid, it renders the</span>
+<span class="sd">    homepage/homepage.html template.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    request (HttpRequest): The HTTP request object.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    HttpResponse: The HTTP response. If the request method is POST and the form is valid,</span>
+<span class="sd">                  it renders the search_doctor.html template with either an error message</span>
+<span class="sd">                  or the found doctors. Otherwise, it renders the homepage/homepage.html</span>
+<span class="sd">                  template.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;POST&quot;</span><span class="p">:</span>
+        <span class="n">form</span> <span class="o">=</span> <span class="n">DoctorSearchForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+            <span class="n">search_term</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="p">[</span><span class="s1">&#39;search_term&#39;</span><span class="p">]</span>
+            <span class="n">search_terms</span> <span class="o">=</span> <span class="n">search_term</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">search_terms</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">doctors</span> <span class="o">=</span> <span class="n">Doctor</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">user__first_name__icontains</span><span class="o">=</span><span class="n">search_terms</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                                                <span class="n">user__last_name__icontains</span><span class="o">=</span><span class="n">search_terms</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">doctors</span> <span class="o">=</span> <span class="n">Doctor</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">user__first_name__icontains</span><span class="o">=</span><span class="n">search_term</span><span class="p">)</span> <span class="o">|</span> \
+                          <span class="n">Doctor</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">user__last_name__icontains</span><span class="o">=</span><span class="n">search_term</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">doctors</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;search_doctor.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;error_message&#39;</span><span class="p">:</span> <span class="s1">&#39;No doctor found&#39;</span><span class="p">})</span>
+            <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;search_doctor.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;doctors&#39;</span><span class="p">:</span> <span class="n">doctors</span><span class="p">})</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">form</span> <span class="o">=</span> <span class="n">DoctorSearchForm</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;homepage/homepage.html&quot;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="doctor_detail">
+<a class="viewcode-back" href="../../homepage.html#homepage.views.doctor_detail">[docs]</a>
+<span class="k">def</span> <span class="nf">doctor_detail</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">username</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Display details for a specific doctor.</span>
+
+<span class="sd">    This view gets a Doctor object by username and renders the doctor_detail.html template</span>
+<span class="sd">    with this doctor as context.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    request (HttpRequest): The HTTP request object.</span>
+<span class="sd">    username (str): The username of the doctor.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    HttpResponse: The HTTP response that renders the doctor_detail.html template.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">doctor</span> <span class="o">=</span> <span class="n">Doctor</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">user__username</span><span class="o">=</span><span class="n">username</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;doctor_detail.html&#39;</span><span class="p">,</span>
+        <span class="p">{</span><span class="s1">&#39;doctor&#39;</span><span class="p">:</span> <span class="n">doctor</span><span class="p">,</span> <span class="s1">&#39;username&#39;</span><span class="p">:</span> <span class="n">doctor</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">username</span><span class="p">})</span></div>
+
+
+
+<div class="viewcode-block" id="book_doctor_appointment">
+<a class="viewcode-back" href="../../homepage.html#homepage.views.book_doctor_appointment">[docs]</a>
+<span class="k">def</span> <span class="nf">book_doctor_appointment</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">username</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Handle booking of doctor appointments.</span>
+
+<span class="sd">    This view handles the POST request for booking a doctor appointment. It creates and validates</span>
+<span class="sd">    an AppointmentForm. If the form is valid and the user is not a doctor, it saves the appointment instance,</span>
+<span class="sd">    and then redirects to the appointments page.</span>
+
+<span class="sd">    If the request method is not POST, if the form is not valid, or if the user is a doctor,</span>
+<span class="sd">    it renders the book_doctor_appointment.html template with the form.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    request (HttpRequest): The HTTP request object.</span>
+<span class="sd">    username (str): The username of the doctor.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    HttpResponse: The HTTP response. If the request method is POST, the form is valid, and the user is not a doctor,</span>
+<span class="sd">                  it redirects to the appointments page. Otherwise, it renders the book_appointment.html template with</span>
+<span class="sd">                  the form.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">doctor</span> <span class="o">=</span> <span class="n">Doctor</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">user__username</span><span class="o">=</span><span class="n">username</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+        <span class="n">form</span> <span class="o">=</span> <span class="n">AppointmentForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">)</span>
+        <span class="n">form</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="s1">&#39;timing&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">queryset</span> <span class="o">=</span> <span class="n">Timing</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">doctor</span><span class="o">=</span><span class="n">doctor</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+            <span class="c1"># Check if the user is a doctor</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">doctor</span>
+                <span class="n">error_message</span> <span class="o">=</span> <span class="s2">&quot;Doctors cannot book appointments for themselves.&quot;</span>
+                <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;book_doctor_appointment.html&#39;</span><span class="p">,</span>
+                              <span class="p">{</span><span class="s1">&#39;form&#39;</span><span class="p">:</span> <span class="n">form</span><span class="p">,</span> <span class="s1">&#39;error_message&#39;</span><span class="p">:</span> <span class="n">error_message</span><span class="p">,</span> <span class="s1">&#39;username&#39;</span><span class="p">:</span> <span class="n">username</span><span class="p">})</span>
+            <span class="k">except</span> <span class="n">Doctor</span><span class="o">.</span><span class="n">DoesNotExist</span><span class="p">:</span>
+                <span class="k">pass</span>
+
+            <span class="c1"># Create a new Appointment instance</span>
+            <span class="n">appointment</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">commit</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="n">appointment</span><span class="o">.</span><span class="n">patient</span> <span class="o">=</span> <span class="n">Patient</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">)</span>
+            <span class="n">appointment</span><span class="o">.</span><span class="n">doctor</span> <span class="o">=</span> <span class="n">doctor</span>
+            <span class="n">appointment</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="n">timezone</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
+            <span class="n">appointment</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;doctor_appointment_confirmation&#39;</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">form</span> <span class="o">=</span> <span class="n">AppointmentForm</span><span class="p">()</span>
+        <span class="n">form</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="s1">&#39;timing&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">queryset</span> <span class="o">=</span> <span class="n">Timing</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">doctor</span><span class="o">=</span><span class="n">doctor</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;book_doctor_appointment.html&#39;</span><span class="p">,</span>
+                  <span class="p">{</span><span class="s1">&#39;form&#39;</span><span class="p">:</span> <span class="n">form</span><span class="p">,</span> <span class="s1">&#39;username&#39;</span><span class="p">:</span> <span class="n">username</span><span class="p">})</span></div>
+
+
+
+<div class="viewcode-block" id="doctor_appointment_confirmation">
+<a class="viewcode-back" href="../../homepage.html#homepage.views.doctor_appointment_confirmation">[docs]</a>
+<span class="k">def</span> <span class="nf">doctor_appointment_confirmation</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">username</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Display a confirmation message after an appointment is booked.</span>
+
+<span class="sd">    This view renders the appointment_confirmation.html template, which displays a confirmation message.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    request (HttpRequest): The HTTP request object.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    HttpResponse: The HTTP response. It renders the appointment_confirmation.html template.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;doctor_appointment_confirmation.html&#39;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="terms_conditions">
+<a class="viewcode-back" href="../../homepage.html#homepage.views.terms_conditions">[docs]</a>
+<span class="k">def</span> <span class="nf">terms_conditions</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   Render the Terms &amp; Conditions page.</span>
+
+<span class="sd">   This view renders the terms_conditions.html template.</span>
+
+<span class="sd">   Parameters:</span>
+<span class="sd">   request (HttpRequest): The HTTP request object.</span>
+
+<span class="sd">   Returns:</span>
+<span class="sd">   HttpResponse: The HTTP response that renders the terms_conditions.html template.</span>
+<span class="sd">   &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;terms_conditions.html&#39;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="privacy_policy">
+<a class="viewcode-back" href="../../homepage.html#homepage.views.privacy_policy">[docs]</a>
+<span class="k">def</span> <span class="nf">privacy_policy</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   Render the Privacy Policy page.</span>
+
+<span class="sd">   This view renders the privacy_policy.html template.</span>
+
+<span class="sd">   Parameters:</span>
+<span class="sd">   request (HttpRequest): The HTTP request object.</span>
+
+<span class="sd">   Returns:</span>
+<span class="sd">   HttpResponse: The HTTP response that renders the privacy_policy.html template.</span>
+<span class="sd">   &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;privacy_policy.html&#39;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="about_us">
+<a class="viewcode-back" href="../../homepage.html#homepage.views.about_us">[docs]</a>
+<span class="k">def</span> <span class="nf">about_us</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   Render the About Us page.</span>
+
+<span class="sd">   This view renders the about_us.html template.</span>
+
+<span class="sd">   Parameters:</span>
+<span class="sd">   request (HttpRequest): The HTTP request object.</span>
+
+<span class="sd">   Returns:</span>
+<span class="sd">   HttpResponse: The HTTP response that renders the about_us.html template.</span>
+<span class="sd">   &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;about_us.html&#39;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="services">
+<a class="viewcode-back" href="../../homepage.html#homepage.views.services">[docs]</a>
+<span class="k">def</span> <span class="nf">services</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   Render the services page.</span>
+
+<span class="sd">   This view renders the services.html template.</span>
+
+<span class="sd">   Parameters:</span>
+<span class="sd">   request (HttpRequest): The HTTP request object.</span>
+
+<span class="sd">   Returns:</span>
+<span class="sd">   HttpResponse: The HTTP response that renders the services.html template.</span>
+<span class="sd">   &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;services.html&#39;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="emergency_services">
+<a class="viewcode-back" href="../../homepage.html#homepage.views.emergency_services">[docs]</a>
+<span class="k">def</span> <span class="nf">emergency_services</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   Render the emergency services page.</span>
+
+<span class="sd">   This view renders the emergency_services.html template.</span>
+
+<span class="sd">   Parameters:</span>
+<span class="sd">   request (HttpRequest): The HTTP request object.</span>
+
+<span class="sd">   Returns:</span>
+<span class="sd">   HttpResponse: The HTTP response that renders the emergency_services.html template.</span>
+<span class="sd">   &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;emergency_services.html&#39;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="doctors">
+<a class="viewcode-back" href="../../homepage.html#homepage.views.doctors">[docs]</a>
+<span class="k">def</span> <span class="nf">doctors</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Render the doctors page.</span>
+
+<span class="sd">  This view renders the doctors.html template.</span>
+
+<span class="sd">  Parameters:</span>
+<span class="sd">  request (HttpRequest): The HTTP request object.</span>
+
+<span class="sd">  Returns:</span>
+<span class="sd">  HttpResponse: The HTTP response that renders the doctors.html template.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;doctors.html&#39;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="staff">
+<a class="viewcode-back" href="../../homepage.html#homepage.views.staff">[docs]</a>
+<span class="k">def</span> <span class="nf">staff</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Render the staff page.</span>
+
+<span class="sd">  This view renders the staff.html template.</span>
+
+<span class="sd">  Parameters:</span>
+<span class="sd">  request (HttpRequest): The HTTP request object.</span>
+
+<span class="sd">  Returns:</span>
+<span class="sd">  HttpResponse: The HTTP response that renders the staff.html template.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;staff.html&#39;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="blood_bank">
+<a class="viewcode-back" href="../../homepage.html#homepage.views.blood_bank">[docs]</a>
+<span class="k">def</span> <span class="nf">blood_bank</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Render the blood bank page.</span>
+
+<span class="sd">  This view renders the blood_bank.html template.</span>
+
+<span class="sd">  Parameters:</span>
+<span class="sd">  request (HttpRequest): The HTTP request object.</span>
+
+<span class="sd">  Returns:</span>
+<span class="sd">  HttpResponse: The HTTP response that renders the blood_bank.html template.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;blood_bank.html&#39;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="bed_reservation">
+<a class="viewcode-back" href="../../homepage.html#homepage.views.bed_reservation">[docs]</a>
+<span class="k">def</span> <span class="nf">bed_reservation</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Render the bed reservation page.</span>
+
+<span class="sd">  This view renders the bed_reservation.html template.</span>
+
+<span class="sd">  Parameters:</span>
+<span class="sd">  request (HttpRequest): The HTTP request object.</span>
+
+<span class="sd">  Returns:</span>
+<span class="sd">  HttpResponse: The HTTP response that renders the bed_reservation.html template.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;bed_reservation.html&#39;</span><span class="p">)</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Rashik.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
