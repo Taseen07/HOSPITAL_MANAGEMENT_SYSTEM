@@ -1,0 +1,19 @@
+<!-- homepage.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+    <!-- Options snippet -->
+    <div>
+        {% include 'homepage/snippets/options.html' %}
+    </div>
+
+    <!-- Search form snippet -->
+    <div>
+        {% include 'homepage/snippets/search_box.html' %}
+    </div>
+
+    <!-- Login button snippet -->
+    <div>
+        {% include 'homepage/snippets/login_button.html' %}
+    </div>
+{% endblock content %}

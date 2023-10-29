@@ -1,0 +1,29 @@
+<!-- search_box.html -->
+{% block content %}
+    <!-- CSS styling for the search box -->
+    <style>
+        .search-box {
+            position: relative;
+            top: 50px;  /* Adjust this value to move the search box lower */
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .search-box form {
+            width: 50%;  /* Adjust this value to change the width of the search box */
+        }
+    </style>
+
+    <!-- Search box -->
+    <div class="search-box">
+        <!-- Form for searching doctors -->
+        <form method="post" action="{% url 'search' %}">
+            {% csrf_token %}
+            <!-- Input field for search term -->
+            <input type="text" name="search_term" placeholder="Search for doctors...">
+            <!-- Submit button for the form -->
+            <button type="submit">Search</button>
+        </form>
+    </div>
+{% endblock content %}

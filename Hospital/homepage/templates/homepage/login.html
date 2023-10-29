@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2 class="center">Login</h2>
+<style>
+    <style>
+    .center {
+        text-align: center;
+    }
+    form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .register-link {
+        margin-right: 20px;
+    }
+</style>
+
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Login</button>
+  </form>
+  {% if messages %}
+    {% for message in messages %}
+      <p>{{ message }}</p>
+    {% endfor %}
+  {% endif %}
+  <div>
+    <a class="register-link" href="{% url 'register_doctor' %}">Register as Doctor</a>
+    <a class="register-link" href="{% url 'register_patient' %}">Register as Patient</a>
+  </div>
+{% endblock %}
