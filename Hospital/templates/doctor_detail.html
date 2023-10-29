@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    .doctor-detail {
+        width: 80%;
+        margin: auto;
+        border: 1px solid #ddd;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+    }
+    .doctor-detail h2 {
+        font-size: 2em;
+        color: #333;
+    }
+    .doctor-detail p {
+        font-size: 1.2em;
+        color: #666;
+    }
+    .doctor-detail a {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: #007BFF;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+</style>
+<div>
+    {% include 'homepage/snippets/options.html' %}
+</div>
+<div>
+    {% include 'homepage/snippets/login_button.html' %}
+</div>
+<div class="doctor-detail">
+    <h2>{{ doctor.user.first_name }} {{ doctor.user.last_name }}</h2>
+    <p>{{ doctor.department }}</p>
+    <p>{{ doctor.description }}</p>
+
+    <!-- Display the doctor's timings -->
+    <h3>Timings:</h3>
+    {% for timing in doctor.timings.all %}
+        <p>Day: {{ timing.day }}, Time Period: {{ timing.time_period }}</p>
+    {% empty %}
+        <p>No timings available.</p>
+    {% endfor %}
+
+    {% if request.user.is_authenticated %}
+    <a href="{% url 'book_doctor_appointment' doctor.user.username %}">Book an Appointment</a>
+    {% else %}
+    <a href="{% url 'login' %}">Log in to book an appointment</a>
+    {% endif %}
+</div>
+{% endblock %}
