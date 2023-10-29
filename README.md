@@ -13,3 +13,6 @@ To active the server:
 python manage.py runserver
 If you see any "static" folder error while migrating, ignore that. If you are using python3 use pip3 instead of pip to 
 install the packages.
+
+>> For documentation run: 
+index.html file in "Hospital Management\Hospital\docs\_build\html"
