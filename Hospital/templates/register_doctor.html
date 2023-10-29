@@ -1,0 +1,93 @@
+<!-- register_doctor.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2 class="center">Register as Doctor</h2>
+  <style>
+    .center {
+        text-align: center;
+    }
+    form {
+        width: 300px;
+        margin: 0 auto;
+        background-color: #f8f7fa;
+        padding: 20px;
+        border-radius: 8px;
+    }
+    input[type="text"], input[type="password"], input[type="email"] {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0;
+        box-sizing: border-box;
+    }
+    button {
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    #addForm {
+        float: right; /* Aligns the button to the right */
+        margin-top: 10px; /* Adds some space above the button */
+    }
+    #timingList {
+        float: right; /* Aligns the timing list to the right */
+    }
+</style>
+
+<form id="myForm" method="post" enctype="multipart/form-data">
+{% csrf_token %}
+{{ user_form.as_p }}
+{{ doctor_form.as_p }}
+{{ formset.management_form }}
+<div id="form_set">
+{% for form in formset %}
+    <div class="form-group">
+        {{ form.as_p }}
+    </div>
+{% endfor %}
+</div>
+<button type="button" id="addForm">Add Another Timing</button>
+    <br>.   <br>
+<button type="submit">Register</button>
+</form>
+
+<div id="timingList"></div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+    var totalForms = parseInt($('#id_timings-TOTAL_FORMS').val());
+    var maxForms = parseInt($('#id_timings-MAX_NUM_FORMS').val());
+    $('#addForm').click(function() {
+        if (totalForms < maxForms) {
+            var newForm = $('#form_set .form-group:last-child').clone();
+            newForm.find('input').each(function() {
+                var regex = new RegExp('timings-(\\d+)-', 'i');
+                $(this).attr({
+                    'name': $(this).attr('name').replace(regex, 'timings-' + totalForms + '-'),
+                    'id': $(this).attr('id').replace(regex, 'timings-' + totalForms + '-'),
+                    'value': ''
+                });
+            });
+            $('#form_set').append(newForm);
+            totalForms++;
+            $('#id_timings-TOTAL_FORMS').val(totalForms);
+        }
+
+        var timingDay = $('#form_set .form-group:last-child input[name$=day]').val();
+        var timingPeriod = $('#form_set .form-group:last-child input[name$=time_period]').val();
+
+        if(timingDay && timingPeriod) { // Only append to list if both fields are not empty
+            $('#timingList').append('<p>' + timingDay + ', ' + timingPeriod + '</p>');
+            $('#form_set .form-group:last-child input[name$=day]').val('');
+            $('#form_set .form-group:last-child input[name$=time_period]').val('');
+        }
+    });
+});
+</script>
+
+{% endblock %}

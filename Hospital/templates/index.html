@@ -1,7 +1,37 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<style>
+    /* Styles specific to the index page */
+    h1 {
+        text-align: center;
+        margin-bottom: 30px;
+        color: #2c3e50;
+    }
+
+    a {
+        display: block;
+        width: max-content;
+        margin: 20px auto;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-align: center;
+        text-decoration: none;
+        color: #fff;
+        background-color: #2980b9;
+        transition: background-color 0.3s ease;
+    }
+
+    a:hover {
+        background-color: #3498db;
+    }
+
+    a:not(:last-of-type) {
+        margin-bottom: 10px;
+    }
+</style>
+
 <h1>Welcome to the Hospital Management System</h1>
-<a href="/diagnostics">View Diagnostic Tests</a><br>
+<a href="/diagnostics">View Diagnostic Tests</a>
 <a href="/emergency">Request Emergency Services</a>
 {% endblock %}

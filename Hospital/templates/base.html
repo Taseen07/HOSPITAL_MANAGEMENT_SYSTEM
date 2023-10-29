@@ -2,15 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- This line is important for responsive design -->
     <title>Hospital Management System</title>
+
     <style>
+        /* Style for body from both files */
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            height: 100%;
             margin: 0;
             padding: 0;
+            display: flex;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
         }
+
+        /* Style for content from first file */
+        .content {
+            flex: 1;
+        }
+
+        /* Style for container from second file */
         .container {
             max-width: 800px;
             margin: 50px auto;
@@ -18,12 +30,29 @@
             padding: 20px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
+
+        /* Media query for screens smaller than 600px from first file */
+        @media (max-width: 600px) {
+            body {
+
+            }
+            .content {
+
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
+    <!-- Main content from first file with .container class from second file added -->
+    <div class="content container">
         {% block content %}
-        {% endblock %}
+        <!-- Content to be inserted here -->
+        {% endblock content %}
+    </div>
+
+    <!-- Include body bottom snippet from first file -->
+    <div>
+        {% include 'homepage/snippets/body_bottom.html' %}
     </div>
 </body>
 </html>

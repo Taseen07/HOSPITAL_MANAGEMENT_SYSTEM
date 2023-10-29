@@ -1,27 +1,38 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
+{% load static %}
 
 {% block content %}
-<h1>Request Emergency Services</h1>
-{% with messages = get_flashed_messages(with_categories=true) %}
-    {% if messages %}
-        {% for category, message in messages %}
-            <div class="{{ category }}">{{ message }}</div>
+<link rel="stylesheet" href="{% static 'common.css' %}">
+
+<h2>Available Emergency Services</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Service Type</th>
+            <th>Cost</th>
+            <th>ETA</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for service in emergency_services %}
+        <tr>
+            <td>{{ service.service_type }}</td>
+            <td>{{ service.cost }}</td>
+            <td>{{ service.ETA }}</td>
+        </tr>
         {% endfor %}
-    {% endif %}
-{% endwith %}
-<form action="/emergency" method="post">
-    <label>Name: <input type="text" name="name" required></label><br>
-    <label>Age: <input type="text" name="age" required></label><br>
-    <label>NID: <input type="text" name="nid" required></label><br>
-    <label>Phone: <input type="text" name="phone" required></label><br>
-    <label>Service Type:
-        <select name="service_type">
-            {% for service, details in services.items() %}
-                <option value="{{ service }}">{{ service }} (Cost: ${{ details.cost }}, ETA: {{ details.ETA }})</option>
-            {% endfor %}
-        </select>
-    </label><br>
-    <input type="submit" value="Request Service">
+    </tbody>
+</table>
+
+<h3>Request an Emergency Service</h3>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Request Service</button>
 </form>
-<a href="/">Back to Home</a>
+
+{% if request_status %}
+<h3>Your Request Status: {{ request_status }}</h3>
+{% endif %}
+
 {% endblock %}

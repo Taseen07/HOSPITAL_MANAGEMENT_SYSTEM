@@ -1,25 +1,42 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
+{% load static %}
 
 {% block content %}
-<h2>{{ category }}</h2>
+<link rel="stylesheet" href="{% static 'common.css' %}">
+
+<style>
+    table {
+        width: 100%; /* Ensure table takes up full width of container */
+        border-collapse: collapse; /* Removes spacing between borders */
+    }
+
+    table th, table td {
+        border: 1px solid black; /* Adds border to table headers and cells */
+        padding: 8px; /* Adds some padding around text in the cells */
+        text-align: left; /* Aligns text to the left. Change as needed */
+        word-wrap: break-word; /* Breaks long words to next line */
+    }
+</style>
+
+<h2>Diagnostic Tests in {{ category.name }}</h2>
 <table>
     <thead>
         <tr>
-            <th>Test Name</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Duration</th>
             <th>Cost</th>
-            <th>Room</th>
         </tr>
     </thead>
     <tbody>
-        {% for test, details in tests.items() %}
-            <tr>
-                <td>{{ test }}</td>
-                <td>${{ details['cost'] }}</td>
-                <td>{{ details['room'] }}</td>
-            </tr>
+        {% for test in tests %}
+        <tr>
+            <td>{{ test.name }}</td>
+            <td>{{ test.description }}</td>
+            <td>{{ test.duration }}</td>
+            <td>{{ test.cost }}</td>
+        </tr>
         {% endfor %}
     </tbody>
 </table>
-<br>
-<a href="/" class="btn btn-primary">Back to Home</a>
 {% endblock %}
