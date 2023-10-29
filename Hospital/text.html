@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h2>Blood Request</h2>
+    <li> </li>
+    <form action="/request_blood" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br>
+        <label for="age">Age:</label>
+        <input type="text" id="age" age="age" required><br>
+        <label for="blood group">Blood Group:</label>
+        <input type="text" id="blood group" blood group ="blood group" required><br>
+        <label for="phone number ">Phone Number :</label>
+        <input type="text" id="phone number " phone number ="phone number " required><br>
+        <label for="email  ">Email:</label>
+        <input type="text" id="email" email="email" required><br>
+        <label for="nid number ">NID number :</label>
+        <input type="text" id="nid number " nid number ="nid number " required><br
+
+
+
+        <!--   blood group. -->
+        <label for=" ">Blood Type  :</label>
+        
+        <select id="blood_type" name="blood_type">
+            <option value="A+">A+</option>
+            <option value="B+">B+</option>
+            <option value="A+">o+</option>
+            <option value="B+">AB+</option>
+            <option value="A+">A-</option>
+            <option value="B+">B-</option>
+            <option value="A+">o-</option>
+            <option value="B+">AB-</option>
+            
+        </select><br>
+        <label for="pickup_time">Pickup Time:</label>
+        <input type="datetime-local" id="pickup_time" name="pickup_time" required><br>
+        <input type="submit" value="Request Blood">
+</body>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    
+    <h2>Doctor Dashboard</h2>
+    <form action="/cancel_appointment" method="post">
+        <label for="appointment_id">Appointment ID:</label>
+        <input type="text" id="appointment_id" name="appointment_id" required><br>
+        <input type="submit" value="Cancel Appointment">
+    </form>
+</body>
+
+
+
+
+</html>
