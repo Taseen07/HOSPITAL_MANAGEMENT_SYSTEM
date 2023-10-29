@@ -239,9 +239,6 @@ def doctor_detail(request, username):
         {'doctor': doctor, 'username': doctor.user.username})
 
 
-from django.utils import timezone
-
-
 def book_doctor_appointment(request, username):
     """
     Handle booking of doctor appointments.
@@ -427,16 +424,16 @@ def blood_bank(request):
     return render(request, 'blood_bank.html')
 
 
-def other_services(request):
+def bed_reservation(request):
     """
-  Render the other services page.
+  Render the bed reservation page.
 
-  This view renders the other_services.html template.
+  This view renders the bed_reservation.html template.
 
   Parameters:
   request (HttpRequest): The HTTP request object.
 
   Returns:
-  HttpResponse: The HTTP response that renders the other_services.html template.
+  HttpResponse: The HTTP response that renders the bed_reservation.html template.
   """
-    return render(request, 'other_services.html')
+    return render(request, 'bed_reservation.html')

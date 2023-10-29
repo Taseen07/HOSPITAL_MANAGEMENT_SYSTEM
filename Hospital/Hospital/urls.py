@@ -51,7 +51,7 @@ urlpatterns = [
     path('services/', views.services, name='services'),
 
     # Path for the Emergency Services page
-    path('emergency-services/', views.emergency_services, name='emergency_services'),
+    path('emergency_services/', views.emergency_services, name='emergency_services'),
 
     # Path for the Doctors List page
     path('doctors/', views.doctors, name='doctors'),
@@ -60,10 +60,10 @@ urlpatterns = [
     path('staff/', views.staff, name='staff'),
 
     # Path for the Blood Bank page
-    path('blood-bank/', views.blood_bank, name='blood_bank'),
+    path('blood_bank/', views.blood_bank, name='blood_bank'),
 
-    # Path for the Other Services page
-    path('other-services/', views.other_services, name='other_services'),
+    # Path for the bed reservation page
+    path('bed_reservation/', views.bed_reservation, name='bed_reservation'),
 
     # Path for booking a doctor's appointment
     path('doctor/<str:username>/book_doctor_appointment/',
