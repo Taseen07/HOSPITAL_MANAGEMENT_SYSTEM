@@ -15,9 +15,9 @@ If you see any "static" folder error while migrating, ignore that. If you are us
 install the packages.
 
 >> For documentation run: 
-index.html file in "Hospital Management\Hospital\docs\_build\html"
+index.html file in "Hospital Management\Hospital\docs\build\html"
 
->>For unit testing run the command:
+>>For unit testing, run the command:
 python manage.py test
 
 
